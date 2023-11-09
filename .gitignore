@@ -1,0 +1,6 @@
+node_modules/
+Ghost/
+*.jpg
+*.mp3
+*.PNG
+*.webp
