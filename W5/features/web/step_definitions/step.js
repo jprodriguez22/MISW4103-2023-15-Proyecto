@@ -42,6 +42,7 @@ Then('I navigate to the page with name {kraken-string}', async function(name){
 });
 
 Then('I go to the navigations settings', async function(){
+    settingsPageObject = new SettingsPage(this.driver)
     await settingsPageObject.navigateToNavigationTab()
     return
 });

@@ -3,5 +3,9 @@
     "announcementSettingsURL": "http://localhost:2368/ghost/#/settings/announcement-bar/edit",
     "newNavInput": "[placeholder='New item label']",
     "newNavUrl": "[class^='peer z-[1] order-2 h-8 w-full bg-transparent']",
-    "newNavOkButton": "[class^='cursor-pointer bg-black text-white dark:bg-white']"
+    "newNavOkButton": "[class^='cursor-pointer bg-black text-white dark:bg-white']",
+    "announcementTextField": ".kg-prose p",
+    "announcementvisitorsInput": "input[value='visitors']",
+    "announcementfreeMembersInput": "input[value='free_members']",
+    "announcementsaveButton": "button[class^='cursor-pointer bg-black text-white dark:bg-white dark:text-black']"
 }

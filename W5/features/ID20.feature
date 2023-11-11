@@ -1,7 +1,7 @@
 Feature: Crear un nuevo anuncio
 
 @user1 @web
-Scenario: #16 Como usuario de Ghost, creo un nuevo anuncio y lo visualizo en la página principal
+Scenario: #20 Como usuario de Ghost, creo un nuevo anuncio y lo visualizo en la página principal
   Given I navigate to page "http://localhost:2368/ghost"
   And I wait for 1 seconds
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"

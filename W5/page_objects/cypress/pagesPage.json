@@ -8,5 +8,6 @@
     "backToEditorButton": "[data-test-button='back-to-editor']",
     "backToPageButton": "[data-test-link='pages']",
     "pageSettings": "[title='Settings']",
-    "deletePageButton": ".settings-menu-delete-button button"
+    "deletePageButton": ".settings-menu-delete-button button",
+    "deleteConfirmButton": "[class^='gh-btn gh-btn-red']"
 }
