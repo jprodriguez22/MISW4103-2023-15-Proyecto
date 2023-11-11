@@ -1,8 +1,10 @@
 {
   "dependencies": {
-    "kraken-node": "^1.0.24"
+    "kraken-node": "^1.0.24",
+    "lorem-ipsum": "^2.0.8"
   },
   "devDependencies": {
-    "cypress": "^13.5.0"
+    "cypress": "^13.5.0",
+    "cypress-plugin-tab": "^1.0.5"
   }
 }

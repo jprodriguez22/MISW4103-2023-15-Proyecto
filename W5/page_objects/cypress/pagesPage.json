@@ -1,0 +1,12 @@
+{
+    "panelButton": "[data-test-nav='pages']",
+    "newPageButton": "[data-test-new-page-button='']",
+    "newPagetitleField": "[placeholder='Page title']",
+    "publishButton": "[data-test-button='publish-flow']",
+    "continueButton": "[data-test-button='continue']",
+    "confirmButton": "[data-test-button='confirm-publish']",
+    "backToEditorButton": "[data-test-button='back-to-editor']",
+    "backToPageButton": "[data-test-link='pages']",
+    "pageSettings": "[title='Settings']",
+    "deletePageButton": ".settings-menu-delete-button button"
+}

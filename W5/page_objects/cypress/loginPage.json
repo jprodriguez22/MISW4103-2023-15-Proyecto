@@ -1,0 +1,5 @@
+{
+    "elementEmail": "#identification",
+    "elementPassword": "#password",
+    "loginButton": "#ember5"
+}
