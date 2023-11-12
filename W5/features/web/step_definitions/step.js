@@ -3,11 +3,29 @@ const LoginPage = require('../../../page_objects/kraken/loginPage');
 const PagesPage = require('../../../page_objects/kraken/pagesPage');
 const SettingsPage = require('../../../page_objects/kraken/settingsPage');
 const HomePage = require('../../../page_objects/kraken/homePage');
+const changePasswordPage = require('../../../page_objects/kraken/changePasswordPage');
+const MembersPage = require('../../../page_objects/kraken/membersPage');
+const PostsPage = require('../../../page_objects/kraken/postsPage');
+const TagsPage = require('../../../page_objects/kraken/tagsPage');
+const { clickThemeButton } = require("../../../page_objects/kraken/userPage");
+const { clickUserButton } = require("../../../page_objects/kraken/userPage");
+const { clickYourProfileButton } = require("../../../page_objects/kraken/userPage");
+const { clickPasswordButton } = require("../../../page_objects/kraken/userPage");
+const { clickChangePasswordButton} = require("../../../page_objects/kraken/userPage");
+const { clickSave} = require("../../../page_objects/kraken/userPage");
+const { clickDone} = require("../../../page_objects/kraken/userPage");
+const { clickSignOut} = require("../../../page_objects/kraken/userPage");
+
 
 Given('I login into the page with my email {kraken-string} and password {kraken-string}', async function (email, password) {   
     loginPageObject = new LoginPage(this.driver) 
     return await loginPageObject.login(email, password)    
 });
+
+Given('I navigate to the page {string}', async function(url) { 
+    await this.driver.url(url);
+});
+
 
 When('I go to the pages tab', async function() {
     pagesPageObject = new PagesPage(this.driver)
@@ -37,6 +55,23 @@ When('I create a new announcement with the text {kraken-string}', async function
     return await settingsPageObject.newAnnouncement(text)
 });
 
+When("I click on 'Change theme' Button", async function () {
+    await clickThemeButton(this.driver);
+});
+
+When("I click on the 'User' Button", async function () {
+    await clickUserButton(this.driver);
+});
+
+When("I click on 'Your Profile' Button", async function () {
+    await clickYourProfileButton(this.driver);
+});
+
+When("I click on 'Sign Out' Button", async function () {
+    await clickSignOut(this.driver);
+});
+
+
 Then('I navigate to the page with name {kraken-string}', async function(name){
     return await this.driver.url("http://localhost:2368/"+name)
 });
@@ -59,4 +94,142 @@ Then('I click on the navbar page with name {kraken-string}', async function(name
 
 Then('I delete the post with name {kraken-string}', async function(name){
     return await pagesPageObject.deletePage(name)
-})
+});
+
+When("I click on 'Change Password' Button", async function(){
+    await clickPasswordButton(this.driver);
+});
+
+When('I write my current password {kraken-string} and my new password {kraken-string}', async function (password, newPassword) {   
+    changePasswordPageObject = new changePasswordPage(this.driver) 
+    return await changePasswordPageObject.changePassword(password, newPassword)    
+});
+
+When("I click on 'Change Password red' Button", async function(){
+    await clickChangePasswordButton(this.driver);
+});
+
+When("I click on 'Save' Button", async function(){
+    await clickSave(this.driver);
+});
+
+When("I click on 'Done' Button", async function(){
+    await clickDone(this.driver);
+});
+
+
+
+When('I go to the members tab', async function() {     // Prueba 15 //
+    membersPageObject = new MembersPage(this.driver)
+    return await membersPageObject.navigateToMembers()
+});
+
+When('I go to the posts tab', async function() {       //Prueba 11 //
+    postsPageObject = new PostsPage(this.driver)
+    return await postsPageObject.navigateToPosts()
+});
+
+When('I go to the tags tab', async function() {        // Para 8-9 //
+    tagsPageObject = new TagsPage(this.driver)
+    return await tagsPageObject.navigateToTags()
+});
+
+When('I go to create a new tag', async function() {    // Para 8-9 //
+    tagsPageObject = new TagsPage(this.driver)
+    return await tagsPageObject.createTag()
+});
+
+When('I select a member', async function() {           // Prueba 15 //
+    return await membersPageObject.selectMember();
+});
+
+When('I select a post', async function() {              // Para 8-11 //
+    return await postsPageObject.selectPost(); 
+});
+
+When('I select a post to put a tag', async function() {  // Prueba 8 //
+    return await postsPageObject.selectPost8(); 
+});
+
+When('I select another post to put a tag', async function() {  // Prueba 8 //
+    return await postsPageObject.selectPost81(); 
+});
+
+When('I select to relate a tag for the post', async function() {  // Prueba 8 //
+    await postsPageObject.relateTag(); 
+    await postsPageObject.selectTheTag();
+    return
+});
+
+When('I select a tag', async function() {                // Para 9 //
+    return await tagsPageObject.selectTag();
+});
+
+When('I add a descriptive note {kraken-string}', async function(note) {   // Prueba 15 //
+    return await membersPageObject.addDescriptiveNote(note);
+});
+
+When('I add a descriptive name {kraken-string}', async function(note) {   // Prueba 15 //
+    return await membersPageObject.addDescriptiveName(note);
+});
+
+When('I change email {kraken-string}', async function(mail) {   // Prueba 7 //
+    return await membersPageObject.changeEmail(mail);
+});
+
+When('I insert a tag name {kraken-string}', async function(tag) {        // Prueba 8 //
+    return await tagsPageObject.insertName(tag); 
+});
+
+When('I modify a tag name {kraken-string}', async function(tag) {        // Prueba 9 //
+    return await tagsPageObject.modifyName(tag);
+});
+
+When('I save the note', async function() {                               // Prueba 15 //
+    return await membersPageObject.saveNote();
+});
+
+When("I click on 'Settings' Button", async function(){
+    return await membersPageObject.clickSettings();
+});
+
+
+When("I click on 'Delete' Button", async function(){
+    return await membersPageObject.delete();
+});
+
+When("I click on 'Confirm' Button", async function(){
+    return await membersPageObject.confirm();
+});
+
+When('I save the tag name', async function() {                            // Prueba 8-9 //
+    return await tagsPageObject.saveName();
+});
+
+When('I unpublish the post', async function() {                           // Prueba 11 //
+    return await postsPageObject.unpublishCurrentPost();
+});
+
+When('I return to the posts list', async function() {                    // Prueba 8-11 // 
+    return await postsPageObject.exitEditor();
+});
+
+When('I navigate to the posts list', async function() {                  // Prueba 8-9-11 //
+    return await tagsPageObject.navigatePosts();
+});
+
+Then('I apply the filters to tags and see the updated name', async function() {   // Prueba 9 //
+    return await postsPageObject.filterAllTags();
+});
+
+Then('I apply the filters to see the new tag', async function() {   // Prueba 8 //
+    return await postsPageObject.filterAllTags();
+});
+
+Then('I validate the note is saved for the member', async function() {      // Prueba 15//
+    return await membersPageObject.validateNote();
+});
+
+Then('I validate the post isnt in the blog', async function() {             // Prueba 11 //
+    return await postsPageObject.validateBlog();
+});
