@@ -107,6 +107,22 @@ class MembersPage extends BasePage {
         let filterButton = await this.driver.$('[data-test-button="members-apply-filter"]')
         await this.driver.pause(2000);
     }
+
+    async navigateToTabMembers() {
+        let button = await this.driver.$('[data-test-nav="members"]');
+        await button.click();
+      }
+    
+      async prepareNewMember(name, email) {
+        let newMemberButton = await this.driver.$('[data-test-new-member-button=""]');
+        await newMemberButton.click();
+        let nameField = await this.driver.$('[id="member-name"]');
+        await nameField.setValue(name);
+        let emailField = await this.driver.$('[id="member-email"]');    
+        await emailField.setValue(email);
+        let saveButton = await this.driver.$('[data-test-button="save"]');
+        await saveButton.click();
+      }
 }
 
 module.exports = MembersPage;

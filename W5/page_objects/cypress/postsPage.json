@@ -1,0 +1,14 @@
+{
+    "panelButton": "[data-test-nav='posts']",
+    "newPostButton": "[data-test-new-post-button='']",
+    "newPosttitleField": "[placeholder='Post title']",
+    "publishButton": "[data-test-button='publish-flow']",
+    "updateButton": "[data-test-button='publish-save']",
+    "continueButton": "[data-test-button='continue']",
+    "confirmButton": "[data-test-button='confirm-publish']",
+    "backToEditorButton": "[data-test-button='back-to-editor']",
+    "backToPostButton": "[data-test-link='posts']",
+    "postSettings": "[title='Settings']",
+    "deletePostButton": ".settings-menu-delete-button button",
+    "deleteConfirmButton": "[class^='gh-btn gh-btn-red']"
+}
