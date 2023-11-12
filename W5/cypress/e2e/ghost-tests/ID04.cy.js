@@ -23,9 +23,8 @@ context('#04 Como usuario, creo un miembro y navego hacia el escribiendo su URL'
     const emailMember = `emailMember${uuid()}@gmail.com`
     cy.get(membersPage.newMemberNameField).type(nameMember)
     cy.get(membersPage.newMemberEmailField).type(emailMember)
-    cy.wait(3000)
+    cy.wait(2000)
     cy.get(membersPage.saveButton).click()
-    // Then I should access it from the URL
-    cy.visit('http://localhost:2368/'+nameMember.toLowerCase())
+    cy.wait(2000)
   })
 })

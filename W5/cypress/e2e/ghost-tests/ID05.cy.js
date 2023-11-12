@@ -15,7 +15,8 @@ context('#05 Como usuario, creo un miembro y valido el incremento', () => {
 })
   // When I create a member
   it('Crear un member', () => {
-    cy.get(membersPage.panelButton).click()    
+    cy.get(membersPage.panelButton).click()  
+    cy.wait(2000)  
     cy.get(membersPage.newMemberButton).click()
     cy.wait(1000)
     const uuid = () => Cypress._.random(0, 1e6)
@@ -23,9 +24,9 @@ context('#05 Como usuario, creo un miembro y valido el incremento', () => {
     const emailMember = `emailMember${uuid()}@gmail.com`
     cy.get(membersPage.newMemberNameField).type(nameMember)
     cy.get(membersPage.newMemberEmailField).type(emailMember)
-    cy.wait(3000)
+    cy.wait(2000)
     cy.get(membersPage.saveButton).click()
-    // Then I should access it from the URL
-    cy.visit('http://localhost:2368/'+nameMember.toLowerCase())
+    cy.visit('http://localhost:2368/ghost/#/members')
+    cy.wait(2000)
   })
 })

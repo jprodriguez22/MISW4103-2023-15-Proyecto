@@ -17,4 +17,6 @@ Scenario: #03 Como usuario, creo un post, lo publico, navego hacia el escribiend
   And I go to the posts tab
   And I wait for 1 seconds
   And I delete the post created with name "$$name_1"
-  And I wait for 4 seconds
+  And I wait for 2 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/posts"
+  And I wait for 2 seconds

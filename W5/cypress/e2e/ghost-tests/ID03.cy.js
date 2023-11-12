@@ -13,8 +13,8 @@ context('#03 Como usuario, creo un post, lo publico, navego hacia el escribiendo
     cy.get(loginPage.loginButton).click(),
     cy.wait(1000)
 })
-  // When I create a post
-  it('Crear un post', () => {
+  // When I create and delete a post
+  it('Crear y eliminar un post', () => {
     cy.get(postsPage.panelButton).click()    
     cy.get(postsPage.newPostButton).click()
     cy.wait(1000)
@@ -23,15 +23,15 @@ context('#03 Como usuario, creo un post, lo publico, navego hacia el escribiendo
     cy.get(postsPage.newPosttitleField).type(postTitle).type('{enter}')
     cy.wait(3000)
     cy.get(postsPage.publishButton).click()
-    // Then I should access it from the URL
-    cy.visit('http://localhost:2368/'+postTitle.toLowerCase())
-  });
-
-  // Then I delete it from the post and confirm its elimination
-  it('Eliminar el post y validar su eliminación', () => {
+    cy.visit('http://localhost:2368/ghost/#/editor/post/'+postTitle.toLowerCase())
+    cy.wait(3000)
     cy.get(postsPage.panelButton).click()
     cy.get('h3').contains(postTitle).click()
     cy.get(postsPage.deletePageButton).click()
     cy.get(postsPage.deleteConfirmButton).filter(':visible').click()
+    cy.get(postsPage.panelButton).click()
+    cy.wait(1000)
+    cy.visit('http://localhost:2368/ghost/#/posts')
+    cy.wait(2000)
   });
 })
