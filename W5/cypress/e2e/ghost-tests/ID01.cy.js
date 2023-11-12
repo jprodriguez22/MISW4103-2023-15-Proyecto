@@ -23,6 +23,8 @@ context('#01 Como usuario, creo un post, lo publico y navego hacia el escribiend
     cy.get(postsPage.newPosttitleField).type(postTitle).type('{enter}')
     cy.wait(3000)
     cy.get(postsPage.publishButton).click()
+    cy.get(postsPage.continueButton).click()
+    cy.get(postsPage.confirmButton).click()
     cy.visit('http://localhost:2368/ghost/#/editor/post/'+postTitle.toLowerCase())
     cy.wait(2000)
   })
