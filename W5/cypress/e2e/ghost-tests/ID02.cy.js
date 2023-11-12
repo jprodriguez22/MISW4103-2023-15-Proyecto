@@ -13,7 +13,7 @@ context('#02 Como usuario, creo un post, lo publico, navego hacia el escribiendo
     cy.get(loginPage.loginButton).click(),
     cy.wait(1000)
 })
-  // When I create a post
+  // When I create a post and modify  post
   it('Crear un post', () => {
     cy.get(postsPage.panelButton).click()    
     cy.get(postsPage.newPostButton).click()
@@ -23,7 +23,16 @@ context('#02 Como usuario, creo un post, lo publico, navego hacia el escribiendo
     cy.get(postsPage.newPosttitleField).type(postTitle).type('{enter}')
     cy.wait(3000)
     cy.get(postsPage.publishButton).click()
-    // Then I should access it from the URL
     cy.visit('http://localhost:2368/'+postTitle.toLowerCase())
+    cy.wait(1000)
+    cy.visit('http://localhost:2368/ghost')
+    cy.wait(1000)
+    cy.get(postsPage.panelButton).click()
+    cy.wait(1000)
+    cy.get('h3='+postTitle).click()
+    cy.wait(1000)
+    cy.get(postsPage.newPosttitleField).type(postTitle+'modify').type('{enter}')
+    cy.wait(3000)
+    cy.get(postsPage.updateButton).click()
   })
 })

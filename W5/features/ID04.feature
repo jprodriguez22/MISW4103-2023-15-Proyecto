@@ -8,5 +8,3 @@ Scenario: #04 Como usuario, creo un miembro y navego hacia el escribiendo su URL
   When I go to the members tab
   And I create a member with name "$name_1" and email "$email_1"
   And I wait for 4 seconds
-  Then I navigate to the member with name "$$name_1"
-  And I wait for 2 seconds

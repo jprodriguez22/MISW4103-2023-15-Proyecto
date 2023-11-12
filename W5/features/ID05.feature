@@ -10,6 +10,6 @@ Scenario: #05 Como usuario, creo un miembro y valido el incremento
   And I wait for 4 seconds
   When I go to the members tab
   And I create a member with name "$name_1" and email "$email_1"
-  And I wait for 4 seconds
-  Then I navigate to page "http://localhost:2368/ghost/#/members"
   And I wait for 2 seconds
+  Then I navigate to page "http://localhost:2368/ghost/#/members"
+  And I wait for 4 seconds

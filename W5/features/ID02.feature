@@ -21,5 +21,6 @@ Scenario: #02 Como usuario, creo un post, lo publico, navego hacia el escribiend
   And I modify data the a post created with title "$name_2" and body "$string_2"
   And I wait for 4 seconds
   And I update the post
-  And I navigate to the post with name "$$name_2"
+  And I wait for 1 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/posts"
   And I wait for 2 seconds

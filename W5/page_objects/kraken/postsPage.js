@@ -89,7 +89,6 @@ class PostsPage extends BasePage {
     }
 
     async validateBlog() {
-
         await this.navigateToSite();
     }
 
