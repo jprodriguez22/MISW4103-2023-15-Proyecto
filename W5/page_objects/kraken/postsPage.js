@@ -14,9 +14,32 @@ class PostsPage extends BasePage {
 
     async selectPost() {
 
-        let postButton = await this.driver.$('[data-test-post-id="654fb98b1592bf46c4853b83"]');
-        await postButton.click();
+        let postsList = await this.driver.$('.feature-memberAttribution');
+        let postItems = await postsList.$$('li');
+        let randomIndex = Math.floor(Math.random() * postItems.length);
+        let randomPost = postItems[randomIndex];
+        let postLink = await randomPost.$('a.gh-post-list-title');
+        await postLink.click();
     }
+
+    async selectRandomPost() {
+        let postsList = await this.driver.$('.feature-memberAttribution');
+        let postItems = await postsList.$$('li');
+        let randomIndex = Math.floor(Math.random() * postItems.length);
+        let randomPost = postItems[randomIndex];
+        let postLink = await randomPost.$('a.gh-post-list-title');
+        await postLink.click();
+    }
+
+    async selectPubs() {
+        let postsList = await this.driver.$('.feature-memberAttribution');
+        let postItems = await postsList.$$('li');
+        let randomIndex = Math.floor(Math.random() * postItems.length);
+        let randomPost = postItems[randomIndex];
+        let postLink = await randomPost.$('a.gh-post-list-title');
+        await postLink.click();
+    }
+
 
     async selectPost8() {
 
@@ -31,14 +54,16 @@ class PostsPage extends BasePage {
     }
 
     async relateTag() {
-        let boxButton = await this.driver.$('[data-test-psm-trigger type="button"]');
+        let boxButton = await this.driver.$('[data-test-psm-trigger]');
         await boxButton.click();
     }
 
     async selectTheTag() {
-        let selButton = await this.driver.$('[data-test-token-input="true"]');
+        let selButton = await this.driver.$('.ember-power-select-trigger-multiple-input');
         await selButton.click();
-        let tagselButton = await this.driver.$('[data-option-index-input="5"]');
+        await this.driver.pause(1000);
+        let tagselButton = await this.driver.$('.ember-power-select-option');
+        await this.driver.pause(2000);
         await tagselButton.click();
     }
 
@@ -68,6 +93,7 @@ class PostsPage extends BasePage {
         let filterbutton = await this.driver.$('[data-test-tag-select="true"]')
         await filterbutton.click()
         let display = await this.driver.$('[data-option-index="4"]')
+        await this.driver.pause(3000);
         await display.click()
     }
 

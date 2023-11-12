@@ -32,6 +32,8 @@ When('I go to the pages tab', async function() {
     return await pagesPageObject.navigateToTab()
 });
 
+
+
 When('I create a new page with title {kraken-string} and body {kraken-string}', async function(title, body) {
     return await pagesPageObject.prepareNewPage(title, body)
 });
@@ -117,8 +119,6 @@ When("I click on 'Done' Button", async function(){
     await clickDone(this.driver);
 });
 
-
-
 When('I go to the members tab', async function() {     // Prueba 15 //
     membersPageObject = new MembersPage(this.driver)
     return await membersPageObject.navigateToMembers()
@@ -139,6 +139,19 @@ When('I go to create a new tag', async function() {    // Para 8-9 //
     return await tagsPageObject.createTag()
 });
 
+When('I add a name member {kraken-string}', async function(nombre) {    // Para 8-9 //
+    return await membersPageObject.createMember(nombre)
+});
+
+When('I add a email member {kraken-string}', async function(correo) {    // Para 8-9 //
+    return await membersPageObject.emailMember(correo)
+});
+
+When('I set a tag for member {kraken-string}', async function(tag) {    // Para 8-9 //
+    membersPageObject = new MembersPage(this.driver)
+    return await membersPageObject.tagMember(tag)
+});
+
 When('I select a member', async function() {           // Prueba 15 //
     return await membersPageObject.selectMember();
 });
@@ -147,12 +160,13 @@ When('I select a post', async function() {              // Para 8-11 //
     return await postsPageObject.selectPost(); 
 });
 
-When('I select a post to put a tag', async function() {  // Prueba 8 //
-    return await postsPageObject.selectPost8(); 
+When('I select a post to put a tag', async function() { 
+    postsPageObject = new PostsPage(this.driver) // Prueba 8 //
+    return await postsPageObject.selectRandomPost(); 
 });
 
 When('I select another post to put a tag', async function() {  // Prueba 8 //
-    return await postsPageObject.selectPost81(); 
+    return await postsPageObject.selectPubs(); 
 });
 
 When('I select to relate a tag for the post', async function() {  // Prueba 8 //
@@ -169,14 +183,6 @@ When('I add a descriptive note {kraken-string}', async function(note) {   // Pru
     return await membersPageObject.addDescriptiveNote(note);
 });
 
-When('I add a descriptive name {kraken-string}', async function(note) {   // Prueba 15 //
-    return await membersPageObject.addDescriptiveName(note);
-});
-
-When('I change email {kraken-string}', async function(mail) {   // Prueba 7 //
-    return await membersPageObject.changeEmail(mail);
-});
-
 When('I insert a tag name {kraken-string}', async function(tag) {        // Prueba 8 //
     return await tagsPageObject.insertName(tag); 
 });
@@ -189,6 +195,61 @@ When('I save the note', async function() {                               // Prue
     return await membersPageObject.saveNote();
 });
 
+When('I save the member with tag', async function() {                               // Prueba 15 //
+    return await membersPageObject.saveNote();
+});
+
+When('I save the tag name', async function() {                            // Prueba 8-9 //
+    return await tagsPageObject.saveName();
+});
+
+When('I unpublish the post', async function() {                           // Prueba 11 //
+    return await postsPageObject.unpublishCurrentPost();
+});
+
+When('I update the post', async function() {                           // Prueba 11 //
+    return await postsPageObject.updatePost();
+});
+
+When('I return to the posts list', async function() {                    // Prueba 8-11 // 
+    return await postsPageObject.exitEditor();
+});
+
+When('I navigate to the posts list', async function() {                  // Prueba 8-9-11 //
+    return await tagsPageObject.navigatePosts();
+});
+
+Then('I apply the filters to tags and see the updated name', async function() {
+    postsPageObject = new PostsPage(this.driver)   // Prueba 9 //
+    return await postsPageObject.filterAllTags();
+});
+
+Then('I apply the filters to see the new tag', async function() {   // Prueba 8 //
+    return await postsPageObject.filterAllTags();
+});
+
+Then('I apply the filters to see the members', async function() {   // Prueba 6 //
+    return await membersPageObject.filterMembers();
+});
+
+Then('I validate the note is saved for the member', async function() {     // Prueba 15//
+    return await membersPageObject.validateNote();
+});
+
+Then('I validate the post isnt in the blog', async function() {             // Prueba 11 //
+    return await postsPageObject.validateBlog();
+});
+
+
+When('I add a descriptive name {kraken-string}', async function(note) {   // Prueba 15 //
+    return await membersPageObject.addDescriptiveName(note);
+});
+
+When('I change email {kraken-string}', async function(mail) {   // Prueba 7 //
+    return await membersPageObject.changeEmail(mail);
+});
+
+
 When("I click on 'Settings' Button", async function(){
     return await membersPageObject.clickSettings();
 });
@@ -200,36 +261,4 @@ When("I click on 'Delete' Button", async function(){
 
 When("I click on 'Confirm' Button", async function(){
     return await membersPageObject.confirm();
-});
-
-When('I save the tag name', async function() {                            // Prueba 8-9 //
-    return await tagsPageObject.saveName();
-});
-
-When('I unpublish the post', async function() {                           // Prueba 11 //
-    return await postsPageObject.unpublishCurrentPost();
-});
-
-When('I return to the posts list', async function() {                    // Prueba 8-11 // 
-    return await postsPageObject.exitEditor();
-});
-
-When('I navigate to the posts list', async function() {                  // Prueba 8-9-11 //
-    return await tagsPageObject.navigatePosts();
-});
-
-Then('I apply the filters to tags and see the updated name', async function() {   // Prueba 9 //
-    return await postsPageObject.filterAllTags();
-});
-
-Then('I apply the filters to see the new tag', async function() {   // Prueba 8 //
-    return await postsPageObject.filterAllTags();
-});
-
-Then('I validate the note is saved for the member', async function() {      // Prueba 15//
-    return await membersPageObject.validateNote();
-});
-
-Then('I validate the post isnt in the blog', async function() {             // Prueba 11 //
-    return await postsPageObject.validateBlog();
 });
