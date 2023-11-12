@@ -114,11 +114,11 @@ class MembersPage extends BasePage {
       }
     
       async prepareNewMember(name, email) {
-        let newMemberButton = await this.driver.$('[data-test-new-member-button=""]');
+        let newMemberButton = await this.driver.$('[data-test-new-member-button="true"]');
         await newMemberButton.click();
-        let nameField = await this.driver.$('[id="member-name"]');
+        let nameField = await this.driver.$('[data-test-input="member-name"]');
         await nameField.setValue(name);
-        let emailField = await this.driver.$('[id="member-email"]');    
+        let emailField = await this.driver.$('[data-test-input="member-email"]');    
         await emailField.setValue(email);
         let saveButton = await this.driver.$('[data-test-button="save"]');
         await saveButton.click();
