@@ -22,7 +22,7 @@ context('#05 Como usuario, creo un miembro y valido el incremento', () => {
     const uuid = () => Cypress._.random(0, 1e6)
     const nameMember = `nameMember${uuid()}`
     const emailMember = `emailMember${uuid()}@gmail.com`
-    cycy.get(membersPage.newMemberNameField).scrollIntoView({ scrollBehavior: false }).type(nameMember, { force: true })
+    cy.get(membersPage.newMemberNameField).scrollIntoView({ scrollBehavior: false }).type(nameMember, { force: true })
     cy.get(membersPage.newMemberEmailField).scrollIntoView({ scrollBehavior: false }).type(emailMember, { force: true })
     cy.wait(2000)
     cy.get(membersPage.saveButton).click()
