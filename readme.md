@@ -16,7 +16,7 @@ Para ejecutar las pruebas construidas en la semana 5, siga los siguientes pasos:
 2. Asegurese de tener instalado Ghost. Estas pruebas fueron construidas con la versión 5.72.2 de la aplicación
 3. Ghost ya debe estar configurado con un usuario y contraseña de administrador para la ejecución de las pruebas y debe haber accedido al dashboard de forma manual
 4. Inicialize Ghost en el puerto por defecto -2368- antes de cada prueba. Puede verificar el puerto con el que inicializa Ghost en el archivo de configuración, ubicado en la carpeta donde tiene la instalación local del programa
-5. Si ya tiene información en Ghost, le recomendamos que borre el contenido de la aplicación haciendo lo siguiente: Settings -> Labs -> Delete all content
+5. Si ya tiene información en Ghost, le solicitamos que borre el contenido de la aplicación haciendo lo siguiente: Settings -> Labs -> Delete all content. El no hacerlo puede provocar errores en la ejecución de las pruebas
 6. Ingrese a la carpeta W5 y configure el archivo properties.json con el usuario y contraseña con el que configuró Ghost
 
 ### Kraken:
