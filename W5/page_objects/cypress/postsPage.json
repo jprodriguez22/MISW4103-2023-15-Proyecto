@@ -10,5 +10,19 @@
     "backToPostButton": "[data-test-link='posts']",
     "postSettings": "[title='Settings']",
     "deletePostButton": ".settings-menu-delete-button button",
-    "deleteConfirmButton": "[class^='gh-btn gh-btn-red']"
+    "deleteConfirmButton": "[class^='gh-btn gh-btn-red']",
+    "siteButton": "[data-test-nav='site']",
+    "postsList": ".feature-memberAttribution",
+    "postsItem": "li",
+    "postLink": "a.gh-post-list-title",
+    "boxButton": "[data-test-psm-trigger]",
+    "selButton": ".ember-power-select-trigger-multiple-input",
+    "tagselButton": ".ember-power-select-options li",
+    "unpublishButton": "[data-test-button='update-flow']",
+    "continueButton2": "[data-test-button='revert-to-draft']",
+    "backButton": "[data-test-link='posts']",
+    "filterButton": "[data-test-tag-select='true']",
+    "display": "[data-option-index='2']",
+    "fltrButton": "[data-test-tag-select='true']",
+    "displaynew": "[data-option-index='2']"
 }

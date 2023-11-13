@@ -1,0 +1,11 @@
+{
+    "panelButton": "[data-test-nav='tags']",
+    "tagList": ".tags-list",
+    "tagItems": "li.gh-tags-list-item",
+    "tagLink": "a.gh-tag-list-title",
+    "newtagButton": "a[href='#/tags/new/']",
+    "nameField": "[data-test-input='tag-name']",
+    "modifynameField": "[data-test-input='tag-name']",
+    "saveButton": "[data-test-button='save']",
+    "postsButton": "[data-test-nav='posts']"
+}

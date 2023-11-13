@@ -1,7 +1,26 @@
 {
-    "panelButton": "[data-test-nav='members']",
+  "panelButton": "[data-test-nav='members']",
     "newMemberButton": "[data-test-new-member-button='true']",
-    "newMemberNameField": "#member-name",
+    "newMemberNameField": "[data-test-input='member-name']",
     "newMemberEmailField": "[data-test-input='member-email']",
-    "saveButton": "[data-test-button='save']"
+    "deleteButton": "[data-test-button='delete-member']",
+    "confirmButton": "[data-test-button='confirm']",
+    "saveButton": "[data-test-button='save']",
+    "settingsButton": "[data-test-button='member-actions']",
+    "nameField": "[data-test-input='member-name']",
+    "newEmailField": "[data-test-input='member-email']",
+    "inputField": ".ember-basic-dropdown-trigger.ember-power-select-trigger.gh-token-input .ember-power-select-trigger-multiple-input",
+    "addButton": "[.ember-power-select-option[data-option-index='0']",
+    "memberButton": "[data-test-list='members-list-item']",
+    "noteField": "[data-test-input='member-note']",
+    "saveButtonMember": "[data-test-button='save']",
+    "saveButtonNote": "[data-test-button='save']",
+    "filterButton": "[data-test-button='members-filter-actions']",
+    "display": "[data-test-select='members-filter']",
+    "optionElement": "[select[data-test-select='members-filter']option[value='label']]",
+    "inputElement": ".ember-power-select-trigger-multiple-input",
+    "listItem": "ul.ember-power-select-options li[data-option-index='0']",
+    "elementButton": "button[data-test-edit-label]",
+    "filtersButton": "[data-test-button='members-apply-filter']"
 }
+
