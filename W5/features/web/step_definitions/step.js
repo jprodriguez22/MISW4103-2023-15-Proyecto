@@ -305,3 +305,15 @@ async function (name) {
 Then("I navigate to the member with name {kraken-string}", async function (name) {
     return await this.driver.url("http://localhost:2368/" + name);
 });
+
+When("I go to the settings tab", async function(){
+    settingsPageObject = new SettingsPage(this.driver)
+    return await settingsPageObject.navigateToSettingsTab()
+});
+
+When("I select edit title settings", async function(){
+    return await settingsPageObject.selectEditTitleSettings()
+});
+When("I add one {kraken-string} two {kraken-string} and three {kraken-string} names to the page title", async function(one, two, three){
+    return await settingsPageObject.addNewTitles(one, two, three)
+})

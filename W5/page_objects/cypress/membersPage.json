@@ -1,7 +1,7 @@
 {
     "panelButton": "[data-test-nav='members']",
     "newMemberButton": "[data-test-new-member-button='true']",
-    "newMemberNameField": "[data-test-input='member-name']",
+    "newMemberNameField": "#member-name",
     "newMemberEmailField": "[data-test-input='member-email']",
     "saveButton": "[data-test-button='save']"
 }
