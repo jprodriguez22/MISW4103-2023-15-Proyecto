@@ -1,4 +1,5 @@
 {
+    "settingsTab": "[data-test-nav='settings']",
     "navigationSettingsURL": "http://localhost:2368/ghost/#/settings/navigation/edit",
     "announcementSettingsURL": "http://localhost:2368/ghost/#/settings/announcement-bar/edit",
     "newNavInput": "[placeholder='New item label']",
@@ -7,5 +8,8 @@
     "announcementTextField": ".kg-prose p",
     "announcementvisitorsInput": "input[value='visitors']",
     "announcementfreeMembersInput": "input[value='free_members']",
-    "announcementsaveButton": "button[class^='cursor-pointer bg-black text-white dark:bg-white dark:text-black']"
+    "announcementsaveButton": "button[class^='cursor-pointer bg-black text-white dark:bg-white dark:text-black']",
+    "editTitle": "button[class^='cursor-pointer  text-green hover']",
+    "titleField": "input[placeholder='Site title']",
+    "titleSaveButton": "button[class^='cursor-pointer  text-green hover:text-green-400']"
 }

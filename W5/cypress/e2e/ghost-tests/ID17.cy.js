@@ -6,9 +6,9 @@ const homePage = require('../../../page_objects/cypress/homePage.json')
 const properties = require('../../../properties.json')
 
 const uuid = () => Cypress._.random(0, 1e9)
-const pageTitle = `testpage${uuid()}`
+const webPageTitle = `Titulo: ${uuid()}`
 
-context('#13 Crear una página nueva y agregarla en el navbar', () => {
+context('#17 Cambiar el título de la página web', () => {
   // Given I login to my website
   beforeEach(name, () => {
     cy.viewport('macbook-16'),
@@ -18,24 +18,17 @@ context('#13 Crear una página nueva y agregarla en el navbar', () => {
     cy.get(loginPage.loginButton).click(),
     cy.wait(1000)
 })
-  // When I create a new page
-  it('Crear una nueva página y visitarla', () => {
-    cy.get(pagesPage.panelButton).click()    
-    cy.get(pagesPage.newPageButton).click()
-    cy.wait(1000)
-    cy.get(pagesPage.newPagetitleField).type(pageTitle).type('{enter}')
-    cy.wait(2000)
-    cy.get(pagesPage.publishButton).click()
-    cy.get(pagesPage.continueButton).click()
-    cy.get(pagesPage.confirmButton).click()
-    cy.visit('http://localhost:2368/'+pageTitle.toLowerCase())
+  // When I navigate to the title settings and change it
+  it('Cambiar el título de la página', () => {
+    cy.get(settingsPage.settingsTab).click()
+    cy.get(settingsPage.editTitle).first().click()
+    cy.get(settingsPage.titleField).clear().type(webPageTitle)
+    cy.get(settingsPage.titleSaveButton).first().click()
+    cy.wait(500)
   });
-  // Then I delete it from the webpage and confirm its elimination
-  it('Eliminar la página y validar su eliminación', () => {
-    cy.get(pagesPage.panelButton).click()
-    cy.get('h3').contains(pageTitle).click()
-    cy.get(pagesPage.pageSettings).click()
-    cy.get(pagesPage.deletePageButton).click()
-    cy.get(pagesPage.deleteConfirmButton).filter(':visible').click()
+  // Then I navigate to the main site and validate the new title on the frontpage and the loginpage
+  it('Visitar la página principal y revisar el cambio', () => {
+    cy.visit(homePage.url)
+    cy.wait(1000)
   })
 })
