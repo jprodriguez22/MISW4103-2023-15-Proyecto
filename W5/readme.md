@@ -27,7 +27,7 @@ Para ejecutar las pruebas construidas en la semana 5, siga los siguientes pasos:
 Asegurese de modificar estos valores por los valores con los de su usuario administrador en Ghost. De lo contrario, las pruebas no funcionarán. Puede modificar la propiedad NEWPASSWORD, sin embargo, no se recomienda que lo haga para garantizar la estabilidad de las pruebas
 
 ### Kraken:
-1. Kraken se debe ejecutar con Node.js versión 16
+1. Kraken se debe ejecutar con Node.js versión 16.14.2
 2. Navegue a la carpeta W5 y ejecute el script "Kraken-tests_Win". Este es un script que corre de manera secuencial las pruebas en Windows debido a que el código de Kraken no interactua completamente bien con las nuevas versiones de algunos paquetes
 3. Una vez finalizadas todas las pruebas, podrá observar los diferentes reportes que genera la aplicación en la carpeta "Reports".
 
