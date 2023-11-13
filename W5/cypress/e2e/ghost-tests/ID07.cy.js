@@ -4,7 +4,7 @@ const membersPage = require('../../../page_objects/cypress/membersPage.json');
 const properties = require('../../../properties.json');
 
 context('#7 Editar el correo de un miembro creado y validar el cambio', () => {
-  let memberIndexToEdit = 1; // Puedes establecer el índice deseado aquí
+  let memberIndexToEdit = 1;
 
   // Given I login to my website
   before(() => {
