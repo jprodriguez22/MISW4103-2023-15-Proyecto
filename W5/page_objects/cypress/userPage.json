@@ -1,0 +1,27 @@
+{
+    "clickThemeButton": {
+        "selector": "div[data-ember-action-35]"
+    },
+    "clickUserButton": {
+      "selector": "div[class$='gh-user-avatar relative']"
+    },
+    "clickYourProfileButton": {
+      "selector": "a[data-test-nav='user-profile']"
+    },
+    "clickPasswordButton": {
+      "selector": "button[class$='cursor-pointer bg-grey-100 text-black dark:bg-grey-900 dark:text-white hover:!bg-grey-300 dark:hover:!bg-grey-800 inline-flex items-center justify-center whitespace-nowrap rounded text-sm transition font-bold  h-[34px] px-4 ']"
+    },
+    "clickChangePasswordButton": {
+      "selector": "button[class$='cursor-pointer bg-red text-white hover:bg-red-400 inline-flex items-center justify-center whitespace-nowrap rounded text-sm transition font-bold  h-[34px] px-4 ']"
+    },
+    "clickSave": {
+      "selector": "button[class$='cursor-pointer bg-black text-white dark:bg-white dark:text-black hover:bg-grey-900 inline-flex items-center justify-center whitespace-nowrap rounded text-sm transition font-bold  h-[34px] px-4  min-w-[80px]']"
+    },
+    "clickDone": {
+      "selector": "button[class$='cursor-pointer  text-black hover:text-grey-800 dark:text-white inline-flex items-center justify-center whitespace-nowrap rounded text-sm transition font-semibold']"
+    },
+    "clickSignOut": {
+      "selector": "a[href='#/signout/']"
+    }
+  }
+  
