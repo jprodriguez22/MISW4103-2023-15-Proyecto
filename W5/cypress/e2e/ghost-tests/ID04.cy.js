@@ -21,8 +21,9 @@ context('#04 Como usuario, creo un miembro y navego hacia el escribiendo su URL'
     const uuid = () => Cypress._.random(0, 1e6)
     const nameMember = `nameMember${uuid()}`
     const emailMember = `emailMember${uuid()}@gmail.com`
-    cy.get(membersPage.newMemberNameField).type(nameMember)
-    cy.get(membersPage.newMemberEmailField).type(emailMember)
+    cy.wait(2000)
+    cy.get(membersPage.newMemberNameField).scrollIntoView({ scrollBehavior: false }).type(nameMember, { force: true })
+    cy.get(membersPage.newMemberEmailField).scrollIntoView({ scrollBehavior: false }).type(emailMember, { force: true })
     cy.wait(2000)
     cy.get(membersPage.saveButton).click()
     cy.wait(2000)
