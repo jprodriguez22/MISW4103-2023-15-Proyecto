@@ -1,5 +1,7 @@
 {
     "LOGINEMAIL": "admin@uniandes.edu.co",
     "LOGINPASSWORD": "administrador",
-    "NEWPASSWORD": "NuevasPruebas12345"
+    "NEWPASSWORD": "NuevasPruebas12345",
+    "BASEURL": "146.190.196.137",
+    "BASEPORT": "2368"
 }

@@ -7,6 +7,7 @@ const changePasswordPage = require('../../../page_objects/kraken/changePasswordP
 const MembersPage = require('../../../page_objects/kraken/membersPage');
 const PostsPage = require('../../../page_objects/kraken/postsPage');
 const TagsPage = require('../../../page_objects/kraken/tagsPage');
+const configs = require('../../../properties.json');
 const { clickThemeButton } = require("../../../page_objects/kraken/userPage");
 const { clickUserButton } = require("../../../page_objects/kraken/userPage");
 const { clickYourProfileButton } = require("../../../page_objects/kraken/userPage");
@@ -103,7 +104,7 @@ async function (name, email) {
 );
 
 Then('I navigate to the page with name {kraken-string}', async function(name){
-    return await this.driver.url("http://localhost:2368/"+name)
+    return await this.driver.url("http://"+configs.BASEURL+":"+configs.BASEPORT+"/"+name)
 });
 
 Then('I go to the navigations settings', async function(){
@@ -292,7 +293,7 @@ When("I click on 'Confirm' Button", async function(){
 });
 
 Then("I navigate to the post with name {kraken-string}", async function (name) {
-    return await this.driver.url("http://localhost:2368/" + name);
+    return await this.driver.url("http://"+configs.BASEURL+":"+configs.BASEPORT+"/" + name);
   });
   
 Then(
@@ -303,7 +304,7 @@ async function (name) {
 );
   
 Then("I navigate to the member with name {kraken-string}", async function (name) {
-    return await this.driver.url("http://localhost:2368/" + name);
+    return await this.driver.url("http://"+configs.BASEURL+":"+configs.BASEPORT+"/" + name);
 });
 
 When("I go to the settings tab", async function(){
@@ -316,4 +317,7 @@ When("I select edit title settings", async function(){
 });
 When("I add one {kraken-string} two {kraken-string} and three {kraken-string} names to the page title", async function(one, two, three){
     return await settingsPageObject.addNewTitles(one, two, three)
-})
+});
+Given("I take a screenshot with the name {kraken-string}", async function(name){
+    return await this.driver.saveScreenshot("./VRTImages/"+name+'.png')
+});
