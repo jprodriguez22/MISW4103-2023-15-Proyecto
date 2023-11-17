@@ -10,7 +10,7 @@ Scenario: #02 Como usuario, creo un post, lo publico, navego hacia el escribiend
   And I wait for 4 seconds
   And I publish the new post
   And I wait for 1 seconds
-  Then I navigate to the post with name "$$name_1"
+  Then I navigate to the post with name "$$name_1" and port "<G5PORT>"
   And I wait for 1 seconds
   And I navigate to page "http://localhost:2368/ghost"
   And I wait for 1 seconds

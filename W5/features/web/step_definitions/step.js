@@ -48,9 +48,9 @@ When('I return to the pages list', async function(){
     await pagesPageObject.exitEditor()
     return 
 });
-When('I go to the announcement settings', async function(){
+When('I go to the announcement settings with base_url {kraken-string}', async function(base_url){
     settingsPageObject = new SettingsPage(this.driver)
-    await settingsPageObject.navigateToAnnouncementTab()
+    await settingsPageObject.navigateToAnnouncementTab(base_url)
     return
 });
 
@@ -103,13 +103,13 @@ async function (name, email) {
 }
 );
 
-Then('I navigate to the page with name {kraken-string}', async function(name){
-    return await this.driver.url("http://"+configs.BASEURL+":"+configs.BASEPORT+"/"+name)
+Then('I navigate to the page with name {kraken-string} and port {kraken-string}', async function(name, port){
+    return await this.driver.url("http://"+configs.BASEURL+":"+port+"/"+name)
 });
 
-Then('I go to the navigations settings', async function(){
+Then('I go to the navigations settings with base_url {kraken-string}', async function(base_url){
     settingsPageObject = new SettingsPage(this.driver)
-    await settingsPageObject.navigateToNavigationTab()
+    await settingsPageObject.navigateToNavigationTab(base_url)
     return
 });
 Then('I add the page {kraken-string} to the website navigation', async function(page){    
@@ -292,8 +292,8 @@ When("I click on 'Confirm' Button", async function(){
     return await membersPageObject.confirm();
 });
 
-Then("I navigate to the post with name {kraken-string}", async function (name) {
-    return await this.driver.url("http://"+configs.BASEURL+":"+configs.BASEPORT+"/" + name);
+Then("I navigate to the post with name {kraken-string} and port {kraken-string}", async function (name, port) {
+    return await this.driver.url("http://"+configs.BASEURL+":"+port+"/" + name);
   });
   
 Then(
@@ -303,8 +303,8 @@ async function (name) {
 }
 );
   
-Then("I navigate to the member with name {kraken-string}", async function (name) {
-    return await this.driver.url("http://"+configs.BASEURL+":"+configs.BASEPORT+"/" + name);
+Then("I navigate to the member with name {kraken-string} and port {kraken-string}", async function (name, port) {
+    return await this.driver.url("http://"+configs.BASEURL+":"+port+"/" + name);
 });
 
 When("I go to the settings tab", async function(){

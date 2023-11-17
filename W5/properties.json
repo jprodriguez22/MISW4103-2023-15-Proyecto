@@ -3,5 +3,6 @@
     "LOGINPASSWORD": "administrador",
     "NEWPASSWORD": "NuevasPruebas12345",
     "BASEURL": "146.190.196.137",
-    "BASEPORT": "2368"
+    "G5PORT": "2368",
+    "G3PORT": "3001"
 }

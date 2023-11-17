@@ -10,7 +10,7 @@ Scenario: #13 Como usuario de Ghost, creo una nueva página, la agrego en la bar
   And I wait for 6 seconds
   And I publish the new page
   And I return to the pages list
-  Then I go to the navigations settings
+  Then I go to the navigations settings with base_url "http://localhost:2368"
   And I wait for 1 seconds
   And I add the page "$$name_1" to the website navigation
   And I wait for 2 seconds

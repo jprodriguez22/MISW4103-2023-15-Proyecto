@@ -10,7 +10,7 @@ Scenario: #16 Como usuario de Ghost, creo una nueva página, accedo a ella por m
   And I wait for 6 seconds
   And I publish the new page
   And I wait for 1 seconds
-  Then I navigate to the page with name "$$name_1"
+  Then I navigate to the page with name "$$name_1" and port "<G5PORT>"
   And I navigate to page "http://localhost:2368/ghost"
   And I wait for 2 seconds
   And I go to the pages tab

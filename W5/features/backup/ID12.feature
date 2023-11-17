@@ -10,4 +10,4 @@ Scenario: #12 Como usuario de Ghost, creo una nueva página y navego hacia ella 
   And I wait for 6 seconds
   And I publish the new page
   And I wait for 1 seconds
-  Then I navigate to the page with name "$$name_1"
+  Then I navigate to the page with name "$$name_1" and port "<G5PORT>"

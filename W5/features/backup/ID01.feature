@@ -10,5 +10,5 @@ Scenario: #01 Como usuario, creo un post, lo publico y navego hacia el escribien
   And I wait for 4 seconds
   And I publish the new post
   And I wait for 1 seconds
-  Then I navigate to the post with name "$$name_1"
+  Then I navigate to the post with name "$$name_1" and port "<G5PORT>"
   And I wait for 2 seconds

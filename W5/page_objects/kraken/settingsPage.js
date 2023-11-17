@@ -2,11 +2,11 @@ const BasePage = require("./basePage");
 
 class settingsPage extends BasePage{
 
-    async navigateToAnnouncementTab(){
-        await this.driver.url('http://localhost:2368/ghost/#/settings/announcement-bar/edit')
+    async navigateToAnnouncementTab(base_url){
+        await this.driver.url(base_url+'/ghost/#/settings/announcement-bar/edit')
     }
-    async navigateToNavigationTab(){
-        await this.driver.url('http://localhost:2368/ghost/#/settings/navigation/edit')
+    async navigateToNavigationTab(base_url){
+        await this.driver.url(base_url+'/ghost/#/settings/navigation/edit')
     }
     async navigateToSettingsTab(){
         let button = await this.driver.$('[data-test-nav="settings"]')

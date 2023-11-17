@@ -2,8 +2,8 @@ import os
 import glob
 
 # CONSTANTES
-TO_REPLACEURL = 'http://146.190.196.137'
-TO_BEREPLACEDURL = "http://localhost"
+TO_REPLACEURL = "http://146.190.196.137:2368"
+TO_BEREPLACEDURL = "http://localhost:2368"
 KRAKEN_FEATURES_ROUTE = "./W5/features/backup/*.feature"
 CYPRESS_TESTS_ROUTE = "./W5/cypress/e2e/ghost-tests/backup/*.js"
 
@@ -23,7 +23,7 @@ def main():
                     line = line.replace(TO_BEREPLACEDURL, TO_REPLACEURL)
                 new_file += line+'\n'
                 if linea in ['Given', 'And', 'When', 'Then']: # Solo se debe agregar la cadena a pasos de la prueba              
-                    new_file += f'  And I take a screenshot with the name "{file_name} - {count} - Ghost5"\n'
+                    new_file += f'  And I take a screenshot with the name "Ghost5\{file_name} - {count}"\n'
                     count += 1            
             with open(f"./W5/features/{file_name}.feature", 'w') as fw:
                 fw.write(new_file) # Escribir el nuevo archivo en la ruta principal

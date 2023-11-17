@@ -1,7 +1,7 @@
 {
     "settingsTab": "[data-test-nav='settings']",
-    "navigationSettingsURL": "http://localhost:2368/ghost/#/settings/navigation/edit",
-    "announcementSettingsURL": "http://localhost:2368/ghost/#/settings/announcement-bar/edit",
+    "navigationSettingsURL": "http://146.190.196.137:2368/ghost/#/settings/navigation/edit",
+    "announcementSettingsURL": "http://146.190.196.137:2368/ghost/#/settings/announcement-bar/edit",
     "newNavInput": "[placeholder='New item label']",
     "newNavUrl": "[class^='peer z-[1] order-2 h-8 w-full bg-transparent']",
     "newNavOkButton": "[class^='cursor-pointer bg-black text-white dark:bg-white']",
