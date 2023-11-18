@@ -1,7 +1,7 @@
 {
-  "pathBefore": "./VRTImages/Ghost3",
-  "pathAfter": "./VRTImages/Ghost5",
-  "pathCompare": "./VRTImages/Resemble",
+  "pathBefore": "./W5/VRTImages/Ghost3",
+  "pathAfter": "./W5/VRTImages/Ghost5",
+  "pathCompare": "./W5/VRTImages/Resemble",
   "browsers": ["chromium", "webkit", "firefox"],
   "valMinToPassedComparison": 25,
   "options": {
