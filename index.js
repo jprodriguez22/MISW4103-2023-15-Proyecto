@@ -9,52 +9,49 @@ const Compare = config.pathCompare;
 
 async function executeTest() {
   const resultado = {};
-  const arregloEscenarios = [
-    obtenerEscenarios(GhostBefore),
-    obtenerEscenarios(GhostAfter),
+  const arregloVersiones = [
+    obtenerArchivos(GhostBefore),
+    obtenerArchivos(GhostAfter),
   ];
 
-  const datos = await Promise.all(arregloEscenarios);
-  const escenariosGhostBefore = datos[0];
-  const escenariosGhostAfter = datos[1];
+  const datos = await Promise.all(arregloVersiones);
+  const archivosGhostBefore = datos[0];
+  const archivosGhostAfter = datos[1];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < archivosGhostBefore.length; i++) {
     try {
-      const escenario = escenariosGhostBefore[i];
-
-      if (escenariosGhostBefore[i] !== escenariosGhostAfter[i]) {
+      const nombreArchivo = archivosGhostBefore[i];
+      if (archivosGhostBefore[i] !== archivosGhostAfter[i]) {
         console.error(
-          `El nombre del escenario ${escenario}, no existe en una de las versiones de Ghost`
+          `El nombre del archivo ${archivosGhostBefore[i]}, no existe en una de las versiones de Ghost`
         );
         continue;
       }
 
       let resultInfo = {};
-      for (paso of escenariosGhostBefore) {
-        const data = await compareImages(
-          `${GhostBefore}/${escenario}/${paso}`,
-          `${GhostAfter}/${escenario}/${paso}`,
-          options
-        );
+      const data = await compareImages(
+        `${GhostBefore}/${nombreArchivo}`,
+        `${GhostAfter}/${nombreArchivo}`,
+        options
+      );
 
-        resultInfo[paso] = {
-          isSameDimensions: data.isSameDimensions,
-          dimensionDifference: data.dimensionDifference,
-          rawMisMatchPercentage: data.rawMisMatchPercentage,
-          misMatchPercentage: data.misMatchPercentage,
-          diffBounds: data.diffBounds,
-          analysisTime: data.analysisTime,
-        };
+      resultInfo[nombreArchivo] = {
+        isSameDimensions: data.isSameDimensions,
+        dimensionDifference: data.dimensionDifference,
+        rawMisMatchPercentage: data.rawMisMatchPercentage,
+        misMatchPercentage: data.misMatchPercentage,
+        diffBounds: data.diffBounds,
+        analysisTime: data.analysisTime,
+      };
 
-        fs.writeFileSync(`${Compare}/${escenario}/${paso}`, data.getBuffer());
+      fs.writeFileSync(`${Compare}/${nombreArchivo}`, data.getBuffer());
 
-        // Logs
-        console.log(`${GhostBefore}/${escenario}/${paso}`);
-        console.log(`${GhostAfter}/${escenario}/${paso}`);
-        console.log(`${Compare}/${escenario}/${paso}`);
-        console.log("*******************************");
-      }
-      resultado[escenario] = resultInfo;
+      // Logs
+      console.log(`${GhostBefore}/${nombreArchivo}`);
+      console.log(`${GhostAfter}/${nombreArchivo}`);
+      console.log(`${Compare}/${nombreArchivo}`);
+      console.log("*******************************");
+      resultado[nombreArchivo] = resultInfo;
     } catch (error) {
       console.error("Fallo en la comparacion de imagenes:", error);
     }
@@ -63,7 +60,7 @@ async function executeTest() {
   return resultado;
 }
 
-function obtenerEscenarios(path) {
+function obtenerArchivos(path) {
   return new Promise((resolve, reject) => {
     fs.readdir(path, (error, archivos) => {
       if (error) reject(error);
