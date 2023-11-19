@@ -4,7 +4,7 @@ import glob
 # CONSTANTES
 TO_REPLACEURL = "http://146.190.196.137:2368"
 TO_BEREPLACEDURL = "http://localhost:2368"
-KRAKEN_FEATURES_ROUTE = "./W5/features/backup/*.feature"
+KRAKEN_FEATURES_ROUTE = "./W5/features/Originales W5/*.feature"
 CYPRESS_TESTS_ROUTE = "./W5/cypress/e2e/ghost-tests/backup/*.js"
 
 def main():
