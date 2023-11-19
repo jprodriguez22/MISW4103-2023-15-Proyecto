@@ -365,11 +365,7 @@ Then("I click on 'View Site Tab' Button", async function(){
 
 //Prueba 22 Ghost 5
 
-When("I click on the 'Labs tab' Button", async function () {
-    settingsPageObject = new SettingsPage(this.driver)
-    return await settingsPageObject.navigateToLabsTab();
 
-});
 
 When("I go to the lab tab", async function(){
     settingsPageObject = new SettingsPage(this.driver)
