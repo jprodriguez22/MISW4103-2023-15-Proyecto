@@ -14,6 +14,24 @@ const clickYourProfileButton = async function (driver) {
     await yourProfileButton.click();
 }
 
+//Ghost 3
+
+const clickUserButton3 = async function (driver) {
+    let userButton = await driver.$("div[class$='ember-view ember-basic-dropdown-trigger  flex items-center outline-0 pointer space-between pa2 pl4 pr3 mt3 mb6']");
+    await userButton.click();
+}
+
+const clickYourProfileButton3 = async function (driver) {
+    let yourProfileButton = await driver.$("a[href='#/staff/grupo/']");
+    await yourProfileButton.click();
+}
+
+const clickChangePasswordButton3 = async function (driver) {
+    let changePasswordButton3 = await driver.$("button[class$='gh-btn gh-btn-icon button-change-password gh-btn-red ember-view']");
+    await changePasswordButton3.click();
+}
+//
+
 const clickPasswordButton = async function (driver) {
     let passwordButton = await driver.$("button[class$='cursor-pointer bg-grey-100 text-black dark:bg-grey-900 dark:text-white hover:!bg-grey-300 dark:hover:!bg-grey-800 inline-flex items-center justify-center whitespace-nowrap rounded text-sm transition font-bold  h-[34px] px-4 ']");
     await passwordButton.click();
@@ -43,9 +61,12 @@ module.exports = {
     clickThemeButton,
     clickUserButton,
     clickYourProfileButton,
+    clickUserButton3,
+    clickYourProfileButton3,
     clickPasswordButton,
     clickChangePasswordButton,
     clickSave,
     clickDone,
     clickSignOut,
+    clickChangePasswordButton3,
 }

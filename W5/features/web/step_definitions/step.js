@@ -1,9 +1,11 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const LoginPage = require('../../../page_objects/kraken/loginPage');
+const loginPageNew = require('../../../page_objects/kraken/loginPage3');
 const PagesPage = require('../../../page_objects/kraken/pagesPage');
 const SettingsPage = require('../../../page_objects/kraken/settingsPage');
 const HomePage = require('../../../page_objects/kraken/homePage');
 const changePasswordPage = require('../../../page_objects/kraken/changePasswordPage');
+const changePasswordNewPage = require('../../../page_objects/kraken/changePasswordPage3');
 const MembersPage = require('../../../page_objects/kraken/membersPage');
 const PostsPage = require('../../../page_objects/kraken/postsPage');
 const TagsPage = require('../../../page_objects/kraken/tagsPage');
@@ -11,8 +13,11 @@ const configs = require('../../../properties.json');
 const { clickThemeButton } = require("../../../page_objects/kraken/userPage");
 const { clickUserButton } = require("../../../page_objects/kraken/userPage");
 const { clickYourProfileButton } = require("../../../page_objects/kraken/userPage");
+const { clickUserButton3 } = require("../../../page_objects/kraken/userPage");
+const { clickYourProfileButton3 } = require("../../../page_objects/kraken/userPage");
 const { clickPasswordButton } = require("../../../page_objects/kraken/userPage");
 const { clickChangePasswordButton} = require("../../../page_objects/kraken/userPage");
+const { clickChangePasswordButton3} = require("../../../page_objects/kraken/userPage");
 const { clickSave} = require("../../../page_objects/kraken/userPage");
 const { clickDone} = require("../../../page_objects/kraken/userPage");
 const { clickSignOut} = require("../../../page_objects/kraken/userPage");
@@ -21,6 +26,11 @@ const { clickSignOut} = require("../../../page_objects/kraken/userPage");
 Given('I login into the page with my email {kraken-string} and password {kraken-string}', async function (email, password) {   
     loginPageObject = new LoginPage(this.driver) 
     return await loginPageObject.login(email, password)    
+});
+
+Given('I login into the page 3 with my email {kraken-string} and password {kraken-string}', async function (email, password) {   
+    login3PageObject = new loginPageNew(this.driver) 
+    return await login3PageObject.login(email, password)    
 });
 
 Given('I navigate to the page {string}', async function(url) { 
@@ -248,6 +258,143 @@ When('I navigate to the posts list', async function() {                  // Prue
     return await tagsPageObject.navigatePosts();
 });
 
+//Prueba 14 Ghost 3
+
+When('I write my current password 3 {kraken-string} and my new password {kraken-string}', async function (password, newPassword) {   
+    changePasswordPageObject3 = new changePasswordNewPage(this.driver) 
+    return await changePasswordPageObject3.changePassword(password, newPassword)    
+});
+
+When("I click on 'Change Password red 3' Button", async function(){
+    await clickChangePasswordButton3(this.driver);
+});
+
+//Prueba 16 Ghost 3
+When('I go to the pages tab 3', async function() {
+    pagesPageObject3 = new PagesPage(this.driver)
+    return await pagesPageObject3.navigateToTab3()
+});
+When("I click on the 'New page 3' Button", async function(){
+    return await pagesPageObject3.clickNewPage3();
+});
+When('I create a new page 3 with title {kraken-string} and body {kraken-string}', async function(title, body) {
+    return await pagesPageObject3.prepareNewPage3(title, body)
+});
+When("I click on the 'Publish 3' Button", async function(){
+    return await pagesPageObject3.clickSaveNewPage3();
+});
+
+Then('I navigate to the page 3 with name {kraken-string} and port {kraken-string}', async function(name, port){
+    return await this.driver.url("http://"+configs.BASEURL+":"+port+"/"+name)
+});
+When('I delete the post 3 with name {kraken-string}', async function(name){
+    return await pagesPageObject3.deletePage3(name)
+});
+
+
+
+//Prueba 17 Ghost 3
+When("I click on 'Settings tab' Button", async function(){
+    settingsPageObject3 = new SettingsPage(this.driver)
+    return await settingsPageObject3.navigateToSettingsGeneralTab();
+});
+When("I click on 'Expand title' Button", async function(){
+    return await settingsPageObject3.expandTitle();
+});
+When('I add a descriptive title to the page {kraken-string}', async function(title) {   // Prueba 15 //
+    return await settingsPageObject3.changeTitle(title);
+});
+Then("I click on 'Save title' Button", async function(){
+    return await settingsPageObject3.saveTitle();
+});
+
+//Prueba 21 Ghost 3
+
+When("I click on the 'Ghost 3 User' Button", async function () {
+    await clickUserButton3(this.driver);
+});
+
+When("I click on 'Ghost 3 Your Profile' Button", async function () {
+    await clickYourProfileButton3(this.driver);
+});
+
+When('I add a descriptive bio {kraken-string}', async function(bio) {   // Prueba 15 //
+    membersPageObject = new MembersPage(this.driver)
+    return await membersPageObject.addDescriptiveBio(bio);
+});
+
+//Ghost 5
+When('I add a descriptive bio 5 {kraken-string}', async function(bio) {   // Prueba 15 //
+    membersPageObject = new MembersPage(this.driver)
+    return await membersPageObject.addDescriptiveBio5(bio);
+});
+When("I click on 'Save Bio 5' Button", async function(){
+    membersPageObject = new MembersPage(this.driver)
+    return await membersPageObject.saveBio5();
+});
+
+When('I navigate to the dashboard page {string}', async function(url) { 
+    await this.driver.url(url);
+});
+//
+
+When("I click on 'Save Bio' Button", async function(){
+    membersPageObject = new MembersPage(this.driver)
+    return await membersPageObject.saveBio();
+});
+//Prueba 22 Ghost 3
+
+When("I click on the 'Labs tab' Button", async function () {
+    settingsPageObject3 = new SettingsPage(this.driver)
+    return await settingsPageObject3.navigateToLabsTab();
+
+});
+
+When("I click on 'Delete all content' Button", async function () {
+    return await settingsPageObject3.clickDelete();
+});
+
+When("I click on 'Confirm delete' Button", async function () {
+    return await settingsPageObject3.clickConfirmDelete();
+});
+
+Then("I click on 'View Site Tab' Button", async function(){
+    return await settingsPageObject3.navigateToViewSiteTab();
+});
+//
+
+//Prueba 22 Ghost 5
+
+When("I click on the 'Labs tab' Button", async function () {
+    settingsPageObject = new SettingsPage(this.driver)
+    return await settingsPageObject.navigateToLabsTab();
+
+});
+
+When("I go to the lab tab", async function(){
+    settingsPageObject = new SettingsPage(this.driver)
+    return await settingsPageObject.navigateToLabTab()
+});
+
+When("I click on 'Open 5' Button", async function () {
+    return await settingsPageObject.Open();
+});
+
+When("I click on 'Delete all content 5' Button", async function () {
+    return await settingsPageObject.clickDelete5();
+});
+
+When("I click on 'Confirm delete 5' Button", async function () {
+    return await settingsPageObject.clickConfirmDelete5();
+});
+
+Then('I navigate to the home page {string}', async function(url) { 
+    await this.driver.url(url);
+});
+
+//
+
+
 Then('I apply the filters to tags and see the updated name', async function() {
     postsPageObject = new PostsPage(this.driver)   // Prueba 9 //
     return await postsPageObject.filterAllTags();
@@ -282,6 +429,7 @@ When('I change email {kraken-string}', async function(mail) {   // Prueba 7 //
 When("I click on 'Settings' Button", async function(){
     return await membersPageObject.clickSettings();
 });
+
 
 
 When("I click on 'Delete' Button", async function(){
