@@ -8,29 +8,28 @@
 | Julian Camilo Mora Valvuena | j.morav@uniandes.edu.co        |
 | Juan Pablo Rodriguez Garcia | jp.rodriguez22@uniandes.edu.co |
 
-## Semana 5
-Para ejecutar las pruebas construidas en la semana 5, siga los siguientes pasos:
+## Semana 6
+Para ejecutar las pruebas construidas en la semana 6, siga los siguientes pasos:
 
 ### Preparación antes de las pruebas:
-1. En el directorio raíz del repositorio, ejecute el comando "npm install"
-2. Asegurese de tener instalado Ghost. Estas pruebas fueron construidas con la versión 5.72.2 de la aplicación
-3. Ghost ya debe estar configurado con un usuario y contraseña de administrador para la ejecución de las pruebas y debe haber accedido al dashboard de forma manual
-4. Inicialize Ghost en el puerto por defecto -2368- antes de cada prueba. Puede verificar el puerto con el que inicializa Ghost en el archivo de configuración, ubicado en la carpeta donde tiene la instalación local del programa
-5. Si ya tiene información en Ghost, le solicitamos que borre el contenido de la aplicación haciendo lo siguiente: Settings -> Labs -> Delete all content. El no hacerlo puede provocar errores en la ejecución de las pruebas
-6. Ingrese a la carpeta e2e-tests y acceda al archivo properties.json. En este encontrará lo siguiente: 
+1. En el directorio raíz del repositorio, ejecute el comando "npm install". Asegurese que está usando NodeJS en la versión 16
+
+2. Para esta semana se cuenta con una versión desplegada en una máquina virtual de Ghost 5.72 y Ghost 3.44. Las rutas de estos servicios son http://146.190.196.137:2368/ y http://146.190.196.137:3001/, respectivamente.
+
+3. Ingrese a la carpeta W5 y acceda al archivo properties.json. En este encontrará lo siguiente: 
 
 | Propiedad                      | Valor                         |
 |-----------------------------|--------------------------------|
 | LOGINEMAIL         | admin@uniandes.edu.co    |
 | LOGINPASSWORD   | administrador        |
 
-Asegurese de modificar estos valores por los valores con los de su usuario administrador en Ghost. De lo contrario, las pruebas no funcionarán. Puede modificar la propiedad NEWPASSWORD, sin embargo, no se recomienda que lo haga para garantizar la estabilidad de las pruebas
+Asegurese de que estos sean los valores que se encuentran en el archivo antes de ejecutar la prueba. De lo contrario, las pruebas no funcionarán. Puede modificar la propiedad NEWPASSWORD, sin embargo, no se recomienda que lo haga para garantizar la estabilidad de las pruebas
 
-### Kraken:
-1. Kraken se debe ejecutar con Node.js versión 16.14.2
-2. Navegue a la carpeta e2e-tests y ejecute el script "Kraken-tests_Win". Este es un script que corre de manera secuencial las pruebas en Windows debido a que el código de Kraken no interactua completamente bien con las nuevas versiones de algunos paquetes
-3. Una vez finalizadas todas las pruebas, podrá observar los diferentes reportes que genera la aplicación en la carpeta "Reports".
+4. Todas las pruebas fueron construidas en Windows 10 y Windows 11
 
-### Cypress:
-1. Dirijase a la carpeta e2e-tests y en la términal o en CMD escriba "npx cypress run"
-2. Podrá ver los videos de las pruebas en la carpeta "./e2e-tests/cypress/videos"
+### Ejecución de las pruebas:
+1. En la carpeta E2E encontrará 3 scripts con extensión .bat: 
+    >* Kraken-tests_G3_Win.bat ejecuta todas las pruebas construidas para la versión de Ghost 3. Estos códigos se encuentran en ./W5/features/Ghost 3
+    >* Kraken-tests_G5_Win.bat ejecuta todas las pruebas construidas para la versión de Ghost 5. Estos códigos se encuentran en ./W5/features/Ghost 5
+    >* Kraken-tests_VRT_Win.bat ejecuta las 10 pruebas escogidas en ambas versiones de Ghost. Estos códigos se encuentran en ./W5/features/VRT/Ghost 3 y ./W5/features/VRT/Ghost 5
+2. Seleccione el script que desee correr. Sin embargo, una vez inicializado no debe cerrar la linea de comandos hasta que todas las pruebas terminen. De lo contrario, deberá guardar los archivos en la carpeta de features en su respectiva carpeta origen
