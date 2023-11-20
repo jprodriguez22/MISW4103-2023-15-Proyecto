@@ -1,4 +1,5 @@
 node_modules/
 Ghost/
 reports/
-backstop_data/
+bitmaps_reference/
+bitmaps_test
