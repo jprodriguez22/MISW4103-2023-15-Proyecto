@@ -16,7 +16,9 @@ Para ejecutar las pruebas construidas en la semana 6, siga los siguientes pasos:
 
 2. Para esta semana se cuenta con una versión desplegada en una máquina virtual de Ghost 5.72 y Ghost 3.44. Las rutas de estos servicios son http://146.190.196.137:2368/ y http://146.190.196.137:3001/, respectivamente.
 
-3. Ingrese a la carpeta W5 y acceda al archivo properties.json. En este encontrará lo siguiente: 
+3. Ingrese a la carpeta W5 y acceda al archivo properties.json. En este encontrará lo siguiente:
+
+4. Es muy importante que se asegure que en la ruta dónde descargue el repositorio no tenga espacios. BackstopJS tiene un bug que no permite inicializar el servicio en la carpeta si es el caso
 
 | Propiedad                      | Valor                         |
 |-----------------------------|--------------------------------|
@@ -35,10 +37,13 @@ Asegurese de que estos sean los valores que se encuentran en el archivo antes de
 2. Seleccione el script que desee correr. Sin embargo, una vez inicializado no debe cerrar la linea de comandos hasta que todas las pruebas terminen. De lo contrario, deberá guardar los archivos en la carpeta de features en su respectiva carpeta origen
 
 ### Ejecución de las comparaciones en ResembleJS:
-1. 
+1. Asegurese de tener instalados resemble.js y los modulos de node.js "fs" y "path": npm install -g backstopjs
+2. Una vez instalado esto, y estando dentra de la ruta MISW4103-2023-Grupo13\W5\VRTImages (según el repositorio) ejecutar el comando: node script.js
+3. Espere a que termine la ejecución del comando para ver como se crean todas las imagenes y reportes HTML dentro de la carpeta MISW4103-2023-Grupo13\W5\reports
+4. Ingrese a la carpeta reports y allí podrá abrir los archvios HTML generados marcados con el respectivo ID de cada prueba.
 
 ### Ejecución de las comparaciones en Backstop:
 1. Asegurese de tener instalado backstop en global: npm install -g backstopjs
-2. Una vez finalice la instalación, ejecute el comando backstop remote para iniciar un servicio en la carpeta
+2. Una vez finalice la instalación, ejecute el comando backstop remote para iniciar un servicio en la carpeta.
 3. Ejecute el comando backstop reference, para cargar las imágenes de referencia obtenidas de las pruebas
 4. Finalmente, ejecute el comando backstop test para iniciar las pruebas. Al finalizar, se le cargará un navegador con las comparaciones
