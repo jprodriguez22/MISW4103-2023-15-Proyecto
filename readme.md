@@ -27,7 +27,7 @@ Para ejecutar las pruebas construidas en la semana 6, siga los siguientes pasos:
 
 Asegurese de que estos sean los valores que se encuentran en el archivo antes de ejecutar la prueba. De lo contrario, las pruebas no funcionarán. Puede modificar la propiedad NEWPASSWORD, sin embargo, no se recomienda que lo haga para garantizar la estabilidad de las pruebas
 
-4. Todas las pruebas fueron construidas en Windows 10 y Windows 11
+5. Todas las pruebas fueron construidas en Windows 10 y Windows 11
 
 ### Ejecución de las pruebas:
 1. En la carpeta E2E encontrará 3 scripts con extensión .bat: 
