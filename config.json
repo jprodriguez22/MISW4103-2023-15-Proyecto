@@ -1,0 +1,24 @@
+{
+  "pathBefore": "./W5/VRTImages/Ghost3",
+  "pathAfter": "./W5/VRTImages/Ghost5",
+  "pathCompare": "./W5/VRTImages/Resemble",
+  "browsers": ["chromium", "webkit", "firefox"],
+  "valMinToPassedComparison": 25,
+  "options": {
+    "output": {
+      "errorColor": {
+        "red": 255,
+        "green": 0,
+        "blue": 255
+      },
+      "errorType": "movement",
+      "largeImageThreshold": 1200,
+      "useCrossOrigin": false,
+      "outputDiff": true
+    },
+    "scaleToSameSize": true,
+    "ignore": "antialiasing"
+  },
+  "viewportHeight": 600,
+  "viewportWidth": 800
+}

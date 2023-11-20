@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "kraken-node": "^1.0.24",
-    "lorem-ipsum": "^2.0.8"
+    "lorem-ipsum": "^2.0.8",
+    "resemblejs": "^5.0.0"
   },
   "devDependencies": {
     "cypress": "^13.5.0",

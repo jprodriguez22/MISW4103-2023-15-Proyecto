@@ -1,0 +1,23 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\VRTImages\\Ghost3\\backstop_default_BackstopJS_Homepage_0_document_0_tablet.png",
+        "test": "..\\..\\VRTImages\\Ghost5\\20231119-203251\\backstop_default_BackstopJS_Homepage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "backstop_default_BackstopJS_Homepage_0_document_0_tablet.png",
+        "label": "BackstopJS Homepage",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0.1,
+        "url": "http://127.0.0.1:3000/VRTImages/Ghost5/ID01 - 1.png",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\Juan\\Documents\\GitHub\\MISW4103-2023-Grupo13\\W5\\VRTImages\\Ghost3\\backstop_default_BackstopJS_Homepage_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "backstop_default"
+}
