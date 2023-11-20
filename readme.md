@@ -18,6 +18,8 @@ Para ejecutar las pruebas construidas en la semana 6, siga los siguientes pasos:
 
 3. Ingrese a la carpeta W5 y acceda al archivo properties.json. En este encontrará lo siguiente: 
 
+4. Es muy importante que se asegure que en la ruta dónde descargue el repositorio no tenga espacios. BackstopJS tiene un bug que no permite inicializar el servicio en la carpeta si es el caso
+
 | Propiedad                      | Valor                         |
 |-----------------------------|--------------------------------|
 | LOGINEMAIL         | admin@uniandes.edu.co    |
