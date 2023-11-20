@@ -38,7 +38,7 @@ Asegurese de que estos sean los valores que se encuentran en el archivo antes de
 1. 
 
 ### Ejecución de las comparaciones en Backstop:
-1. Asegurese de tener instalado backstop en global: npm install backstop -g
+1. Asegurese de tener instalado backstop en global: npm install -g backstopjs
 2. Una vez finalice la instalación, ejecute el comando backstop remote para iniciar un servicio en la carpeta
 3. Ejecute el comando backstop reference, para cargar las imágenes de referencia obtenidas de las pruebas
 4. Finalmente, ejecute el comando backstop test para iniciar las pruebas. Al finalizar, se le cargará un navegador con las comparaciones
