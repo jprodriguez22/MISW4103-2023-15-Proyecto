@@ -33,3 +33,12 @@ Asegurese de que estos sean los valores que se encuentran en el archivo antes de
     >* Kraken-tests_G5_Win.bat ejecuta todas las pruebas construidas para la versión de Ghost 5. Estos códigos se encuentran en ./W5/features/Ghost 5
     >* Kraken-tests_VRT_Win.bat ejecuta las 10 pruebas escogidas en ambas versiones de Ghost. Estos códigos se encuentran en ./W5/features/VRT/Ghost 3 y ./W5/features/VRT/Ghost 5
 2. Seleccione el script que desee correr. Sin embargo, una vez inicializado no debe cerrar la linea de comandos hasta que todas las pruebas terminen. De lo contrario, deberá guardar los archivos en la carpeta de features en su respectiva carpeta origen
+
+### Ejecución de las comparaciones en ResembleJS:
+1. 
+
+### Ejecución de las comparaciones en Backstop:
+1. Asegurese de tener instalado backstop en global: npm install backstop -g
+2. Una vez finalice la instalación, ejecute el comando backstop remote para iniciar un servicio en la carpeta
+3. Ejecute el comando backstop reference, para cargar las imágenes de referencia obtenidas de las pruebas
+4. Finalmente, ejecute el comando backstop test para iniciar las pruebas. Al finalizar, se le cargará un navegador con las comparaciones
