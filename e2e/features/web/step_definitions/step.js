@@ -1,13 +1,16 @@
+// Importación de Cucumber
 const { Given, When, Then } = require("@cucumber/cucumber");
+
+// Importación de configuraciones
+const configs = require("../../../properties.json");
+
+// Importación de módulos
 const LoginPage = require("../../../page_objects/kraken/loginPage");
 const LoginPageGhost3 = require("../../../page_objects/kraken/loginPageGhost3");
 const PagesPage = require("../../../page_objects/kraken/pagesPage");
 const PagesPageGhost3 = require("../../../page_objects/kraken/pagesPageGhost3");
 const loginPageNew = require('../../../page_objects/kraken/loginPage3');
 const changePasswordNewPage = require('../../../page_objects/kraken/changePasswordPage3');
-const { clickUserButton3 } = require("../../../page_objects/kraken/userPage");
-const { clickYourProfileButton3 } = require("../../../page_objects/kraken/userPage");
-const { clickChangePasswordButton3} = require("../../../page_objects/kraken/userPage");
 const SettingsPage = require("../../../page_objects/kraken/settingsPage");
 const SettingsPageGhost3 = require("../../../page_objects/kraken/settingsPageGhost3");
 const HomePage = require("../../../page_objects/kraken/homePage");
@@ -16,22 +19,50 @@ const MembersPage = require("../../../page_objects/kraken/membersPage");
 const PostsPage = require("../../../page_objects/kraken/postsPage");
 const PostsPageGhost3 = require("../../../page_objects/kraken/postsPageGhost3");
 const TagsPage = require("../../../page_objects/kraken/tagsPage");
-const configs = require("../../../properties.json");
+const MockarooInterface = require("../../../page_objects/kraken/mockarooInterface");
+
+// Importación de funciones
 const { clickThemeButton } = require("../../../page_objects/kraken/userPage");
 const { clickUserButton } = require("../../../page_objects/kraken/userPage");
-const {
-  clickYourProfileButton,
-} = require("../../../page_objects/kraken/userPage");
-const {
-  clickPasswordButton,
-} = require("../../../page_objects/kraken/userPage");
-const {
-  clickChangePasswordButton,
-} = require("../../../page_objects/kraken/userPage");
+const { clickYourProfileButton, } = require("../../../page_objects/kraken/userPage");
+const { clickPasswordButton, } = require("../../../page_objects/kraken/userPage");
+const { clickChangePasswordButton, } = require("../../../page_objects/kraken/userPage");
 const { clickSave } = require("../../../page_objects/kraken/userPage");
 const { clickDone } = require("../../../page_objects/kraken/userPage");
 const { clickSignOut } = require("../../../page_objects/kraken/userPage");
+const { clickUserButton3 } = require("../../../page_objects/kraken/userPage");
+const { clickYourProfileButton3 } = require("../../../page_objects/kraken/userPage");
+const { clickChangePasswordButton3} = require("../../../page_objects/kraken/userPage");
 
+
+// Aquí se declaran los Given para la importación de datos a priori y dinámicos. Estos siempre se deben llamar en el Given 
+Given("I load a priori user dataset", function(){ // Este es un llamado para el mock de user a priori 
+  globalThis.mockUser = new MockarooInterface(this.driver) // Declara el uso de variables globales para poder garantizar que la información es constante en toda la prueba
+  globalThis.userData = globalThis.mockUser.prioriInitializeUsers()
+})
+Given("I load a priori hex dataset", function(){ // Este es un llamado para el mock de colores hexadecimales a priori 
+  globalThis.mockHex = new MockarooInterface(this.driver)
+  globalThis.hexData = globalThis.mockHex.prioriInitializeHexColor();
+})
+Given("I load a dynamic user dataset", function(){ // Este es un llamado para el mock de user dinámico, es decir, con un GET por medio de un API HTTP
+  globalThis.mockUser = new MockarooInterface(this.driver)
+  globalThis.userData = globalThis.mockUser.dynamicInitializeUsers();
+})
+Given("I load a dynamic hex dataset", function(){ // Este es un llamado para el mock de colores hexadecimales dinámico
+  globalThis.mockHex = new MockarooInterface(this.driver)
+  globalThis.hexData = globalThis.mockHex.dynamicInitializeUsers();
+})
+
+// Acá se deben construir los pasos para la inyección aleatoria de datos
+Given("I login into the page with a random user and email", async function(){
+  loginPageObject = new LoginPage(this.driver);
+  let randomUser = globalThis.mockUser.getRandomUser(globalThis.userData);
+  let userEmail = randomUser.email;
+  let userPassword = randomUser.password;
+  return await loginPageObject.login(userEmail, userPassword)
+})
+
+// En este punto ya se toman las pruebas programadas normalmente
 Given(
   "I login into the page with my email {kraken-string} and password {kraken-string}",
   async function (email, password) {
@@ -56,6 +87,13 @@ Given(
 Given("I navigate to the page {string}", async function (url) {
   await this.driver.url(url);
 });
+
+Given(
+  "I take a screenshot with the name {kraken-string}",
+  async function (name) {
+    return await this.driver.saveScreenshot("./VRTImages/" + name + ".png");
+  }
+);
 
 When("I go to the pages tab", async function () {
   pagesPageObject = new PagesPage(this.driver);
@@ -188,59 +226,6 @@ When(
     return await membersPageObject.prepareNewMember(name, email);
   }
 );
-
-Then(
-  "I navigate to the page with name {kraken-string} and port {kraken-string}",
-  async function (name, port) {
-    return await this.driver.url(
-      "http://" + configs.BASEURL + ":" + port + "/" + name
-    );
-  }
-);
-
-Then(
-  "I go to the navigations settings with base_url {kraken-string}",
-  async function (base_url) {
-    settingsPageObject = new SettingsPage(this.driver);
-    await settingsPageObject.navigateToNavigationTab(base_url);
-    return;
-  }
-);
-Then(
-  "I add the page {kraken-string} to the website navigation",
-  async function (page) {
-    settingsPageObject = new SettingsPage(this.driver);
-    await settingsPageObject.addNewPage(page);
-    return;
-  }
-);
-
-Then(
-    "I add Ghost3 the page {kraken-string} to the website navigation",
-    async function (page) {
-      settingsPageObjectGhost3 = new SettingsPageGhost3(this.driver);
-      await settingsPageObjectGhost3.addNewPage(page);
-      return;
-    }
-  );
-
-Then(
-  "I click on the navbar page with name {kraken-string}",
-  async function (name) {
-    homePageObject = new HomePage(this.driver);
-    await homePageObject.selectNavPage(name);
-    return;
-  }
-);
-
-Then("I delete the post with name {kraken-string}", async function (name) {
-  return await pagesPageObject.deletePage(name);
-});
-
-Then("I delete Ghost3 the post with name {kraken-string}", async function (name) {
-    pagesPageObjectGhost3 = new PagesPageGhost3(this.driver);
-    return await pagesPageObjectGhost3.deletePage(name);
-  });
 
 When("I click on 'Change Password' Button", async function () {
   await clickPasswordButton(this.driver);
@@ -460,14 +445,9 @@ When("I click on the 'Publish 3' Button", async function(){
     return await pagesPageObject3.clickSaveNewPage3();
 });
 
-Then('I navigate to the page 3 with name {kraken-string} and port {kraken-string}', async function(name, port){
-    return await this.driver.url("http://"+configs.BASEURL+":"+port+"/"+name)
-});
 When('I delete the post 3 with name {kraken-string}', async function(name){
     return await pagesPageObject3.deletePage3(name)
 });
-
-
 
 //Prueba 17 Ghost 3
 When("I click on 'Settings tab' Button", async function(){
@@ -534,15 +514,6 @@ When("I click on 'Confirm delete' Button", async function () {
     return await settingsPageObject3.clickConfirmDelete();
 });
 
-Then("I click on 'View Site Tab' Button", async function(){
-    return await settingsPageObject3.navigateToViewSiteTab();
-});
-//
-
-//Prueba 22 Ghost 5
-
-
-
 When("I go to the lab tab", async function(){
     settingsPageObject = new SettingsPage(this.driver)
     return await settingsPageObject.navigateToLabTab()
@@ -560,15 +531,6 @@ When("I click on 'Confirm delete 5' Button", async function () {
     return await settingsPageObject.clickConfirmDelete5();
 });
 
-Then('I navigate to the home page {string}', async function(url) { 
-    await this.driver.url(url);
-});
-
-//
-
-
-
-
 When("I click on 'Settings' Button", async function () {
   return await membersPageObject.clickSettings();
 });
@@ -580,6 +542,85 @@ When("I click on 'Delete' Button", async function () {
 When("I click on 'Confirm' Button", async function () {
   return await membersPageObject.confirm();
 });
+
+When("I go to the settings tab", async function () {
+  settingsPageObject = new SettingsPage(this.driver);
+  return await settingsPageObject.navigateToSettingsTab();
+});
+
+When("I go Ghost3 to the settings tab", async function () {
+    settingsPageObjectGhost3 = new SettingsPageGhost3(this.driver);
+    return await settingsPageObjectGhost3.navigateToSettingsTab();
+  });
+
+When("I select edit title settings", async function () {
+  return await settingsPageObject.selectEditTitleSettings();
+});
+
+When(
+  "I add one {kraken-string} two {kraken-string} and three {kraken-string} names to the page title",
+  async function (one, two, three) {
+    return await settingsPageObject.addNewTitles(one, two, three);
+  }
+);
+
+Then('I navigate to the page 3 with name {kraken-string} and port {kraken-string}', async function(name, port){
+  return await this.driver.url("http://"+configs.BASEURL+":"+port+"/"+name)
+});
+
+Then(
+  "I navigate to the page with name {kraken-string} and port {kraken-string}",
+  async function (name, port) {
+    return await this.driver.url(
+      "http://" + configs.BASEURL + ":" + port + "/" + name
+    );
+  }
+);
+
+Then(
+  "I go to the navigations settings with base_url {kraken-string}",
+  async function (base_url) {
+    settingsPageObject = new SettingsPage(this.driver);
+    await settingsPageObject.navigateToNavigationTab(base_url);
+    return;
+  }
+);
+
+Then(
+  "I add the page {kraken-string} to the website navigation",
+  async function (page) {
+    settingsPageObject = new SettingsPage(this.driver);
+    await settingsPageObject.addNewPage(page);
+    return;
+  }
+);
+
+Then(
+    "I add Ghost3 the page {kraken-string} to the website navigation",
+    async function (page) {
+      settingsPageObjectGhost3 = new SettingsPageGhost3(this.driver);
+      await settingsPageObjectGhost3.addNewPage(page);
+      return;
+    }
+  );
+
+Then(
+  "I click on the navbar page with name {kraken-string}",
+  async function (name) {
+    homePageObject = new HomePage(this.driver);
+    await homePageObject.selectNavPage(name);
+    return;
+  }
+);
+
+Then("I delete the post with name {kraken-string}", async function (name) {
+  return await pagesPageObject.deletePage(name);
+});
+
+Then("I delete Ghost3 the post with name {kraken-string}", async function (name) {
+    pagesPageObjectGhost3 = new PagesPageGhost3(this.driver);
+    return await pagesPageObjectGhost3.deletePage(name);
+  });
 
 Then(
   "I navigate to the post with name {kraken-string} and port {kraken-string}",
@@ -615,28 +656,10 @@ Then(
   }
 );
 
-When("I go to the settings tab", async function () {
-  settingsPageObject = new SettingsPage(this.driver);
-  return await settingsPageObject.navigateToSettingsTab();
+Then('I navigate to the home page {string}', async function(url) { 
+  await this.driver.url(url);
 });
 
-When("I go Ghost3 to the settings tab", async function () {
-    settingsPageObjectGhost3 = new SettingsPageGhost3(this.driver);
-    return await settingsPageObjectGhost3.navigateToSettingsTab();
-  });
-
-When("I select edit title settings", async function () {
-  return await settingsPageObject.selectEditTitleSettings();
+Then("I click on 'View Site Tab' Button", async function(){
+  return await settingsPageObject3.navigateToViewSiteTab();
 });
-When(
-  "I add one {kraken-string} two {kraken-string} and three {kraken-string} names to the page title",
-  async function (one, two, three) {
-    return await settingsPageObject.addNewTitles(one, two, three);
-  }
-);
-Given(
-  "I take a screenshot with the name {kraken-string}",
-  async function (name) {
-    return await this.driver.saveScreenshot("./VRTImages/" + name + ".png");
-  }
-);

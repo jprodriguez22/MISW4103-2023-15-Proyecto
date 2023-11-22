@@ -1,5 +1,4 @@
 {
-    "random_hex": "https://my.api.mockaroo.com/random_hex.json",
-    "ghost_user": "https://my.api.mockaroo.com/ghost_users.json",
-    "api_key": "?key=a8a70e10"
+    "random_hex": "https://my.api.mockaroo.com/random_hex.json?key=a8a70e10",
+    "ghost_user": "https://my.api.mockaroo.com/ghost_users.json?key=a8a70e10"
 }
