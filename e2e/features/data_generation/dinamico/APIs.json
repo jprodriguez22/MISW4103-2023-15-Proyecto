@@ -1,0 +1,5 @@
+{
+    "random_hex": "https://my.api.mockaroo.com/random_hex.json",
+    "ghost_user": "https://my.api.mockaroo.com/ghost_users.json",
+    "api_key": "?key=a8a70e10"
+}
