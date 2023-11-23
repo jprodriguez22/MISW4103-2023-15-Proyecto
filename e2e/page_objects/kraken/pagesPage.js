@@ -50,8 +50,7 @@ class pagesPage extends BasePage{
         await newPageButton.click()
         let titleField = await this.driver.$('[placeholder="Page title"]');
         await titleField.setValue(title);
-        await titleField.keys('Enter')
-        await titleField.keys('Enter')
+        await titleField.keys('Enter');
         await titleField.keys(body)
     }
 
