@@ -91,6 +91,16 @@ When(
   }
 );
 
+When(
+  "I create a member with priori random name and email",
+  async function () {
+    membersPageObject = new MembersPage(this.driver);
+    const name = globalThis.member.name;
+    const email = globalThis.member.email;
+    return await membersPageObject.prepareNewMember(name, email);
+  }
+);
+
 When("I create a new page with priori random name and bio", async function () {
   pagesPageObject = new PagesPage(this.driver);
   let title = `${globalThis.user2.first_name} ${globalThis.user2.last_name}`;
