@@ -90,12 +90,12 @@ class settingsPage extends BasePage{
     }
     //
 
-
     async addNewPage(title){
         let newPageInput = await this.driver.$('[placeholder="New item label"]')
         await newPageInput.setValue(title)
         await newPageInput.keys('Tab')
         await newPageInput.keys(title)
+        await this.driver.saveScreenshot("../e2e/reports" + "/suspicion.png")
         await newPageInput.keys('Tab')
         await newPageInput.keys('Enter')
         await newPageInput.keys('Tab')

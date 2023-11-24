@@ -4,7 +4,7 @@ Feature: Crear nueva pagina
 Scenario: #12-priori: Como usuario de Ghost, fallo un login con datos aleatorios, accedo, creo una nueva página y navego hacia ella escribiendola en la URL
   Given I navigate to page "<GHOST5>"
   And I wait for 2 seconds
-  And I load a priori user dataset
+  And I load a priori dataset
   And I login into the page with priori random user and email
   And I wait for 1 seconds
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
