@@ -21,6 +21,9 @@ Given("I load a dynamic dataset", async function(){ // Este es un llamado para e
   globalThis.hexData = await globalThis.mockHex.dynamicInitializeHex();
   globalThis.user1 = globalThis.mockUser.getRandom(globalThis.userData);
   globalThis.hex1 = globalThis.mockHex.getRandom(globalThis.hexData);
+  while(globalThis.hex1 === 'NULL'){
+    globalThis.hex1 = globalThis.mockHex.getRandom(globalThis.hexData) 
+  }
 });
 
 Given("I load a post with dynamic dataset", function () {
@@ -34,14 +37,6 @@ Given("I load a member with dynamic dataset", function () {
   globalThis.memberData = globalThis.mockMember.dynamicInitializeMembers();
   globalThis.member = globalThis.mockMember.getRandom(globalThis.memberData);
 });
-
-Given(
-  "I login into the page with my email {kraken-string} and password {kraken-string}",
-  async function (email, password) {
-    loginPageObject = new LoginPage(this.driver);
-    return await loginPageObject.login(email, password);
-  }
-);
 
 // Acá se deben construir los pasos para la inyección aleatoria de datos
 When("I create a post with dynamic random title and body", async function () {
@@ -101,6 +96,17 @@ When("I create a new page with dynamic random naughty string and bio", async fun
   }
 );
 
+When("I add a random dynamic full name to the page title", async function (){
+  settingsPageObject = new SettingsPage(this.driver);
+  let title = globalThis.user1.first_name + " " + globalThis.user1.last_name;
+  return await settingsPageObject.addNewTitle(title);
+});
+
+When("I create a new random dynamic bio announcement", async function (){
+  let title = globalThis.user1.biography
+  return await settingsPageObject.newAnnouncement(title);
+});
+
 Then("I navigate to the post with dynamic random name", async function () {
   const name = globalThis.post.title.replace(" ", "-");
   return await this.driver.url(
@@ -112,10 +118,9 @@ Then(
   "I delete the post created with dynamic random title",
   async function (name) {
     postsPageObject = new PostsPage(this.driver);
-    const name = globalThis.post.title.replace(" ", "-");
+    name = globalThis.post.title.replace(" ", "-");
     return await postsPageObject.deletePost(name);
-  }
-);
+  });
 
 Then("I navigate to the page with dynamic random name", async function(){
   pagesPageObject = new PagesPage(this.driver);
@@ -130,4 +135,8 @@ Then("I add the dynamic page to the website navigation", async function (){
 Then("I click on the navbar page with dynamic name", async function (){
   homePageObject = new HomePage(this.driver);
   return await homePageObject.selectNavPage(globalThis.hex1.naughty.replace(/[@. ]/g, '-'));
+});
+
+Then("I delete the page with dynamic random naughty string", async function (){
+  return await pagesPageObject.deletePage(globalThis.hex1.naughty.replace(/\s+$/, ''))
 });

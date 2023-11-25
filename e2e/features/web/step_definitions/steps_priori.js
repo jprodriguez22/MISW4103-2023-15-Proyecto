@@ -24,6 +24,9 @@ Given("I load a priori dataset", function () {
   globalThis.mockHex = new MockarooInterface(this.driver);
   globalThis.hexData = globalThis.mockHex.prioriInitializeHex();
   globalThis.hex1 = globalThis.mockHex.getRandom(globalThis.hexData);
+  while(globalThis.hex1 === 'NULL' || globalThis.hex1 === ''){
+    globalThis.hex1 = globalThis.mockHex.getRandom(globalThis.hexData) 
+  }
 });
 
 Given("I load a post with priori dataset", function () {
@@ -41,14 +44,6 @@ Given("I load a member with priori dataset", function () {
 // Acá se deben construir los pasos para la inyección aleatoria de datos
 
 // Funciones Given
-Given(
-  "I login into the page with my email {kraken-string} and password {kraken-string}",
-  async function (email, password) {
-    loginPageObject = new LoginPage(this.driver);
-    return await loginPageObject.login(email, password);
-  }
-);
-
 Given(
   "I login into the page with priori random user and email",
   async function () {
@@ -115,43 +110,41 @@ When("I create a new page with priori random email and bio", async function () {
   return await pagesPageObject.prepareNewPage(title, body);
 });
 
-Then("I navigate to the post with priori random name", async function () {
-  const name = globalThis.post.title.replace(" ", "-");
-  return await this.driver.url(
-    "http://" + configs.BASEURL + ":" + configs.G5PORT + "/" + name
-  );
+When("I create a new page with priori random naughty string and bio", async function (){
+  pagesPageObject = new PagesPage(this.driver);
+  let title = globalThis.hex1.naughty;
+  let body = globalThis.user2.biography;
+  return await pagesPageObject.prepareNewPage(title, body);
 });
 
-Then(
-  "I delete the post created with priori random title",
-  async function (name) {
-    postsPageObject = new PostsPage(this.driver);
-    const name = globalThis.post.title.replace(" ", "-");
-    return await postsPageObject.deletePost(name);
-  }
-);
+When("I add a random priori email to the page title", async function (){
+  settingsPageObject = new SettingsPage(this.driver);
+  let title = globalThis.user2.email;
+  return await settingsPageObject.addNewTitle(title);
+});
 
-Then("I navigate to the page with priori random name", async function () {
-  return await this.driver.url(
-    "http://" +
-      configs.BASEURL +
-      ":" +
-      configs.G5PORT +
-      "/" +
-      `${globalThis.user2.first_name}-${globalThis.user2.last_name}`
-  );
+When("I create a new random priori naughty string announcement", async function (){
+  let title = globalThis.hex1.naughty
+  return await settingsPageObject.newAnnouncement(title);
+});
+
+Then("I navigate to the page with priori random name", async function(){
+  pagesPageObject = new PagesPage(this.driver);
+  return await pagesPageObject.visitAfterPublish();
 });
 
 Then("I add the priori page to the website navigation", async function () {
   settingsPageObject = new SettingsPage(this.driver);
   return await settingsPageObject.addNewPage(
-    globalThis.user2.email.replace(/[@. ]/g, "-")
-  );
+    globalThis.user2.email.replace(/[@. ]/g, "-"));
 });
 
 Then("I click on the navbar page with priori name", async function () {
   homePageObject = new HomePage(this.driver);
   return await homePageObject.selectNavPage(
-    globalThis.user2.email.replace(/[@. ]/g, "-")
-  );
+    globalThis.user2.email.replace(/[@. ]/g, "-"));
+});
+
+Then("I delete the page with priori random naughty string", async function (){
+  return await pagesPageObject.deletePage(globalThis.hex1.naughty.replace(/\s+$/, ''))
 });
