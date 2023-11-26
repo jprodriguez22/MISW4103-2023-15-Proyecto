@@ -1,8 +1,6 @@
 /// <reference types="cypress" />
 const loginPage = require('../../../../../page_objects/cypress/loginPage.json')
 const pagesPage = require('../../../../../page_objects/cypress/pagesPage.json')
-const settingsPage = require('../../../../../page_objects/cypress/settingsPage.json')
-const homePage = require('../../../../../page_objects/cypress/homePage.json')
 const properties = require('../../../../../properties.json')
 const MockarooInterface = require('../../../../../page_objects/cypress/mockarooInterface')
 
