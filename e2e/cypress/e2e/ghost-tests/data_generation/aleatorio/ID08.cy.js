@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json');
-const membersPage = require('../../../page_objects/cypress/membersPage.json');
-const properties = require('../../../properties.json');
-const tagsPage = require('../../../page_objects/cypress/tagsPage.json');
-const postsPage = require('../../../page_objects/cypress/postsPage.json');
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json');
+const membersPage = require('../../../../../page_objects/cypress/membersPage.json');
+const properties = require('../../../../../properties.json');
+const tagsPage = require('../../../../../page_objects/cypress/tagsPage.json');
+const postsPage = require('../../../../../page_objects/cypress/postsPage.json');
 
 context('#8 Crear un tag, asignarlo a varios posts y filtrarlo', () => {
   let selectedTag; 

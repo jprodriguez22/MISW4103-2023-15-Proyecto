@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json')
-const pagesPage = require('../../../page_objects/cypress/pagesPage.json')
-const properties = require('../../../properties.json')
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json')
+const pagesPage = require('../../../../../page_objects/cypress/pagesPage.json')
+const properties = require('../../../../../properties.json')
 
 context('#12 Crear una página nueva y navegar hacia ella', () => {
   // Given I login to my website

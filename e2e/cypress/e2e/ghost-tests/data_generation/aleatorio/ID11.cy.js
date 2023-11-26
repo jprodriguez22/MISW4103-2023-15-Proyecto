@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json');
-const membersPage = require('../../../page_objects/cypress/membersPage.json');
-const postsPage = require('../../../page_objects/cypress/postsPage.json');
-const properties = require('../../../properties.json');
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json');
+const membersPage = require('../../../../../page_objects/cypress/membersPage.json');
+const postsPage = require('../../../../../page_objects/cypress/postsPage.json');
+const properties = require('../../../../../properties.json');
 
 context('#11 Cambiar el estado de un post publicado a borrador y validar que no aparece en blog', () => {
   let memberIndexToClick = 1; 

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json')
-const postsPage = require('../../../page_objects/cypress/postsPage.json')
-const properties = require('../../../properties.json')
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json')
+const postsPage = require('../../../../../page_objects/cypress/postsPage.json')
+const properties = require('../../../../../properties.json')
 
 context('#01 Como usuario, creo un post, lo publico y navego hacia el escribiendo su URL', () => {
   // Given I login to my website

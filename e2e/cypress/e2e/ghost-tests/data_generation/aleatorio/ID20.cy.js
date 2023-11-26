@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json')
-const settingsPage = require('../../../page_objects/cypress/settingsPage.json')
-const homePage = require('../../../page_objects/cypress/homePage.json')
-const properties = require('../../../properties.json')
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json')
+const settingsPage = require('../../../../../page_objects/cypress/settingsPage.json')
+const homePage = require('../../../../../page_objects/cypress/homePage.json')
+const properties = require('../../../../../properties.json')
 
 context('#13 Crear una página nueva y agregarla en el navbar', () => {
   // Given I login to my website

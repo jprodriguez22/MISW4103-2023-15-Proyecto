@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json');
-const userPage = require('../../../page_objects/cypress/userPage.json');
-const properties = require('../../../properties.json');
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json');
+const userPage = require('../../../../../page_objects/cypress/userPage.json');
+const properties = require('../../../../../properties.json');
 
 context('#10 cambiar el tema de la aplicación y navegar al menú de usuario', () => {
 

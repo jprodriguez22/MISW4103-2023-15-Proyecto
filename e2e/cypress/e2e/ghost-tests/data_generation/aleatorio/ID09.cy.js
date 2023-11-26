@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json');
-const tagsPage = require('../../../page_objects/cypress/tagsPage.json');
-const postsPage = require('../../../page_objects/cypress/postsPage.json');
-const properties = require('../../../properties.json');
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json');
+const tagsPage = require('../../../../../page_objects/cypress/tagsPage.json');
+const postsPage = require('../../../../../page_objects/cypress/postsPage.json');
+const properties = require('../../../../../properties.json');
 
 context('#9 Editar un tag y asignarlo a varias publicaciones y validarlo', () => {
 

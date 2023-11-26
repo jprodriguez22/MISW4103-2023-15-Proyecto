@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json')
-const pagesPage = require('../../../page_objects/cypress/pagesPage.json')
-const settingsPage = require('../../../page_objects/cypress/settingsPage.json')
-const homePage = require('../../../page_objects/cypress/homePage.json')
-const properties = require('../../../properties.json')
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json')
+const pagesPage = require('../../../../../page_objects/cypress/pagesPage.json')
+const settingsPage = require('../../../../../page_objects/cypress/settingsPage.json')
+const homePage = require('../../../../../page_objects/cypress/homePage.json')
+const properties = require('../../../../../properties.json')
 
 const uuid = () => Cypress._.random(0, 1e9)
 const webPageTitle = `Titulo: ${uuid()}`

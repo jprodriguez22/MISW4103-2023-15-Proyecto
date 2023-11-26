@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json');
-const membersPage = require('../../../page_objects/cypress/membersPage.json');
-const tagsPage = require('../../../page_objects/cypress/tagsPage.json');
-const properties = require('../../../properties.json');
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json');
+const membersPage = require('v../../../page_objects/cypress/membersPage.json');
+const tagsPage = require('../../../../../page_objects/cypress/tagsPage.json');
+const properties = require('../../../../../properties.json');
 
 context('#6 Crear dos miembros nuevos, asignarles un tag y filtrarlos', () => {
     

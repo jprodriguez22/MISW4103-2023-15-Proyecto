@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json');
-const userPage = require('../../../page_objects/cypress/userPage.json');
-const changePasswordPage = require('../../../page_objects/cypress/changePasswordPage.json');
-const properties = require('../../../properties.json');
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json');
+const userPage = require('../../../../../page_objects/cypress/userPage.json');
+const changePasswordPage = require('../../../../../page_objects/cypress/changePasswordPage.json');
+const properties = require('../../../../../properties.json');
 
 context('#14 Cambiar la contraseña de un usuario dos veces', () => {
 

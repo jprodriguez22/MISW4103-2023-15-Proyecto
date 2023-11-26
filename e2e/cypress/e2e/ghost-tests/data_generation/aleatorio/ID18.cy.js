@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-const loginPage = require('../../../page_objects/cypress/loginPage.json');
-const membersPage = require('../../../page_objects/cypress/membersPage.json');
-const properties = require('../../../properties.json');
+const loginPage = require('../../../../../page_objects/cypress/loginPage.json');
+const membersPage = require('../../../../../page_objects/cypress/membersPage.json');
+const properties = require('../../../../../properties.json');
 
 context('#18 Eliminar un miembro', () => {
   let memberIndexToEdit = 1;
