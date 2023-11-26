@@ -20,10 +20,12 @@ context('#01 Como usuario, creo un post, lo publico y navego hacia el escribiend
     const mockPost = mockInterface.prioriInitializePosts()
     const post = mockInterface.getRandom(mockPost)
     const title = post.title.toLowerCase().replace(" ","-")
+    const body = "vu3Vc$pavaFz?0g1,[Z4;(9_&r}{@d!jV!4QB7ZHT0xU+nZ&mhvp:YGXEj{YPR47,Xh&M@=HEt{m0_K-jQ,xreJxpcw-eQd+=dJ[;gLAj0XivBcG?%=.8GF.6UzvQzK.FAwQ2+w$C:AfjZ7q*t/nxJ@+1*WEh4EMq}#RyxY0YiWjnrUfh2vvcf/Zzq(TFb&dJ-82#X=[Mg{HH$%vhW3D/Wu,Sk8[U09W&Ki0KiNctX4uC14?EH/8T#.p_{Q3afb"
     cy.get(postsPage.panelButton).click()    
     cy.get(postsPage.newPostButton).click()
     cy.wait(1000)
     cy.get(postsPage.newPosttitleField).type(title).type('{enter}')
+    cy.get(postsPage.newPostbodyField).type(body)
     cy.wait(3000)
     cy.get(postsPage.publishButton).click()
     cy.get(postsPage.continueButton).click()

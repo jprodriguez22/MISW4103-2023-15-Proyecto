@@ -20,7 +20,7 @@ context('#05 Como usuario, creo un miembro y valido el incremento', () => {
     cy.wrap(mockInterface.dynamicInitializeMembers()).then(mockMember => {
       const member = mockInterface.getRandom(mockMember)
       const nameMember = member.name.toLowerCase().replace(" ","-")
-      const emailMember = member.name
+      const emailMember = member.email
       cy.get(membersPage.panelButton).click()  
       cy.wait(2000)  
       cy.get(membersPage.newMemberButton).click()

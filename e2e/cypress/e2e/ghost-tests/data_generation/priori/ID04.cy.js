@@ -18,9 +18,9 @@ context('#04 Como usuario, creo un miembro y navego hacia el escribiendo su URL'
   it('Crear un member', () => {
     const mockInterface = new MockarooInterface()
     const mockMember = mockInterface.prioriInitializeMembers()
-    const member = mockInterface.getRandom(mockMember)
-    const nameMember = member.name.toLowerCase().replace(" ","-")
-    const emailMember = member.name
+    const member = mockInterface.getRandom(mockMember)    
+    const nameMember = "vu3Vc$pavaFz?0g1,[Z4;(9_&r}{@d!jV!4QB7ZH"
+    const emailMember = member.email
     cy.get(membersPage.panelButton).click()    
     cy.get(membersPage.newMemberButton).click()
     cy.wait(1000)
