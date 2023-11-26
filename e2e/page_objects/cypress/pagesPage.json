@@ -2,6 +2,7 @@
     "panelButton": "[data-test-nav='pages']",
     "newPageButton": "[data-test-new-page-button='']",
     "newPagetitleField": "[placeholder='Page title']",
+    "newPagePostField": "div[class='kg-prose']",
     "publishButton": "[data-test-button='publish-flow']",
     "continueButton": "[data-test-button='continue']",
     "confirmButton": "[data-test-button='confirm-publish']",
@@ -9,5 +10,6 @@
     "backToPageButton": "[data-test-link='pages']",
     "pageSettings": "[title='Settings']",
     "deletePageButton": ".settings-menu-delete-button button",
-    "deleteConfirmButton": "[class^='gh-btn gh-btn-red']"
+    "deleteConfirmButton": "[class^='gh-btn gh-btn-red']",
+    "alertMessage": "[class='gh-alert gh-alert-red']"
 }
