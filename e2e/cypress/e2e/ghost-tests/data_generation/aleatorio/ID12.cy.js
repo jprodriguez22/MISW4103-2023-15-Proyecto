@@ -5,9 +5,9 @@ const properties = require('../../../../../properties.json')
 
 context('#12 Crear una página nueva y navegar hacia ella', () => {
   // Given I login to my website
-  before(name, () => {
+  beforeEach(name, () => {
     cy.viewport('macbook-16'),
-    cy.visit('http://localhost:2368/ghost'),
+    cy.visit(properties.GHOST5),
     cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
     cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
     cy.get(loginPage.loginButton).click(),
@@ -26,6 +26,6 @@ context('#12 Crear una página nueva y navegar hacia ella', () => {
     cy.get(pagesPage.continueButton).click()
     cy.get(pagesPage.confirmButton).click()
     // Then I should access it from the URL
-    cy.visit('http://localhost:2368/'+pageTitle.toLowerCase())
+    cy.visit('http://146.190.196.137:2368/'+pageTitle.toLowerCase())
   })
 })

@@ -6,7 +6,7 @@ const MockarooInterface = require('../../../../../page_objects/cypress/mockarooI
 
 context('#02 Como usuario, creo un post, lo publico, navego hacia el escribiendo su URL, lo edito, lo actualizo y navego hacia el escribiendo su URL', () => {
   // Given I login to my website
-  before(name, () => {
+  beforeEach(name, () => {
     cy.viewport('macbook-16'),
     cy.visit(properties.GHOST5),
     cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),

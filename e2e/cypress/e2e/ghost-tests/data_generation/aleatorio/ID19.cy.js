@@ -7,14 +7,14 @@ context('#19 Editar el nombre de un miembro creado y validar el cambio', () => {
   let memberIndexToEdit = 1;
 
   // Given I login to my website
-  before(() => {
-    cy.viewport('macbook-16');
-    cy.visit('http://localhost:2368/ghost');
-    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL);
-    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD);
-    cy.get(loginPage.loginButton).click();
-    cy.wait(1000);
-  });
+  beforeEach(name, () => {
+    cy.viewport('macbook-16'),
+    cy.visit(properties.GHOST5),
+    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
+    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
+    cy.get(loginPage.loginButton).click(),
+    cy.wait(1000)
+})
 
   // When I edit a member's name
   it('Editar el nombre de un miembro', () => {

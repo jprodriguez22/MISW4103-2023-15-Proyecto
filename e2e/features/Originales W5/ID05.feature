@@ -2,7 +2,7 @@ Feature: Pruebas funcionales en Ghost
 
 @user1 @web
 Scenario: #05 Como usuario, creo un miembro y valido el incremento
-  Given I navigate to page "http://localhost:2368/ghost"
+  Given I navigate to page "<GHOST5>"
   And I wait for 1 seconds
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   And I wait for 1 seconds

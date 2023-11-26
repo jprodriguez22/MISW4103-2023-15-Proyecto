@@ -2,7 +2,7 @@ Feature: Editar un miembro creado en la plataforma y validar el cambio de sus da
 
 @user1 @web
 Scenario: Editar el nombre de un miembro
-  Given I navigate to the page "http://localhost:2368/ghost"
+  Given I navigate to the page "<GHOST5>"
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   When I go to the members tab
   And I wait for 2 seconds

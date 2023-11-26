@@ -8,14 +8,14 @@ context('#11 Cambiar el estado de un post publicado a borrador y validar que no 
   let memberIndexToClick = 1; 
 
   // Given I login to my website
-  before(() => {
-    cy.viewport('macbook-16');
-    cy.visit('http://localhost:2368/ghost');
-    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL);
-    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD);
-    cy.get(loginPage.loginButton).click();
-    cy.wait(1000);
-  });
+  beforeEach(name, () => {
+    cy.viewport('macbook-16'),
+    cy.visit(properties.GHOST5),
+    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
+    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
+    cy.get(loginPage.loginButton).click(),
+    cy.wait(1000)
+})
 
   // When I select a post
   it('Seleccionar un post y ponerlo en borrador', () => {

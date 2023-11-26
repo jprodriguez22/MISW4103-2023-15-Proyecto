@@ -5,9 +5,9 @@ const properties = require('../../../../../properties.json')
 
 context('#03 Como usuario, creo un post, lo publico, navego hacia el escribiendo su URL, lo elimino y visualizo listado', () => {
   // Given I login to my website
-  before(name, () => {
+  beforeEach(name, () => {
     cy.viewport('macbook-16'),
-    cy.visit('http://localhost:2368/ghost'),
+    cy.visit(properties.GHOST5),
     cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
     cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
     cy.get(loginPage.loginButton).click(),
@@ -25,9 +25,9 @@ context('#03 Como usuario, creo un post, lo publico, navego hacia el escribiendo
     cy.get(postsPage.publishButton).click()
     cy.get(postsPage.continueButton).click()
     cy.get(postsPage.confirmButton).click()
-    cy.visit('http://localhost:2368/ghost/#/editor/post/'+postTitle.toLowerCase())
+    cy.visit('http://146.190.196.137:2368/ghost/#/editor/post/'+postTitle.toLowerCase())
     cy.wait(2000)
-    cy.visit('http://localhost:2368/ghost')
+    cy.visit('http://146.190.196.137:2368/ghost')
     cy.wait(1000)
     cy.get(postsPage.panelButton).click()
     cy.wait(1000)
@@ -36,7 +36,7 @@ context('#03 Como usuario, creo un post, lo publico, navego hacia el escribiendo
     cy.get(postsPage.deletePostButton).click()
     cy.get(postsPage.deleteConfirmButton).filter(':visible').click()
     cy.wait(1000)
-    cy.visit('http://localhost:2368/ghost/#/posts')
+    cy.visit('http://146.190.196.137:2368/ghost/#/posts')
     cy.wait(2000)
   });
 })

@@ -5,9 +5,9 @@ const properties = require('../../../../../properties.json')
 
 context('#04 Como usuario, creo un miembro y navego hacia el escribiendo su URL', () => {
   // Given I login to my website
-  before(name, () => {
+  beforeEach(name, () => {
     cy.viewport('macbook-16'),
-    cy.visit('http://localhost:2368/ghost'),
+    cy.visit(properties.GHOST5),
     cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
     cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
     cy.get(loginPage.loginButton).click(),

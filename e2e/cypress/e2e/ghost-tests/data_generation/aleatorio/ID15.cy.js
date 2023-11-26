@@ -7,14 +7,14 @@ context('#15 Crear una nota descriptiva y validarla', () => {
   let memberIndexToClick = 1;
 
 
-  before(() => {
-    cy.viewport('macbook-16');
-    cy.visit('http://localhost:2368/ghost');
-    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL);
-    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD);
-    cy.get(loginPage.loginButton).click();
-    cy.wait(1000);
-  });
+  beforeEach(name, () => {
+    cy.viewport('macbook-16'),
+    cy.visit(properties.GHOST5),
+    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
+    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
+    cy.get(loginPage.loginButton).click(),
+    cy.wait(1000)
+})
 
   // When I create a new note
   it('Crear una nueva nota', () => {

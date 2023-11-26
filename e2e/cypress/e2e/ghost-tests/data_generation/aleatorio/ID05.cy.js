@@ -5,9 +5,9 @@ const properties = require('../../../../../properties.json')
 
 context('#05 Como usuario, creo un miembro y valido el incremento', () => {
   // Given I login to my website
-  before(name, () => {
+  beforeEach(name, () => {
     cy.viewport('macbook-16'),
-    cy.visit('http://localhost:2368/ghost'),
+    cy.visit(properties.GHOST5),
     cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
     cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
     cy.get(loginPage.loginButton).click(),
@@ -26,7 +26,7 @@ context('#05 Como usuario, creo un miembro y valido el incremento', () => {
     cy.get(membersPage.newMemberEmailField).scrollIntoView({ scrollBehavior: false }).type(emailMember, { force: true })
     cy.wait(2000)
     cy.get(membersPage.saveButton).click()
-    cy.visit('http://localhost:2368/ghost/#/members')
+    cy.visit('http://146.190.196.137:2368/ghost/#/members')
     cy.wait(2000)
   })
 })

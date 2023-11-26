@@ -2,7 +2,7 @@ Feature: Editar la contraseña del usuario loggeado y probar el inicio de sesió
 
 @user1 @web
 Scenario: Cambiar la contraseña del usuario y probar
-  Given I navigate to page "http://localhost:2368/ghost"
+  Given I navigate to page "<GHOST5>"
   And I wait for 1 seconds
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   When I click on the 'User' Button

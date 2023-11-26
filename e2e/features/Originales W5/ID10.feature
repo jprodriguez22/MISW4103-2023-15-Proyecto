@@ -2,7 +2,7 @@ Feature: Cambiar tema visual del blog e ir al perfil del usuario
 
 @user1 @web
 Scenario: Cambiar tema visual del blog
-  Given I navigate to page "http://localhost:2368/ghost"
+  Given I navigate to page "<GHOST5>"
   And I wait for 1 seconds
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   When I click on 'Change theme' Button

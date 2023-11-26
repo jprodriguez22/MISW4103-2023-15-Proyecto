@@ -3,7 +3,7 @@ Feature: Editar un tag
 
 @user1 @web
 Scenario: #9 Como usuario de Ghost, edito un tag asignado a varias publicaciones y valido
-  Given I navigate to the page "http://localhost:2368/ghost"
+  Given I navigate to the page "<GHOST5>"
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   When I go to the tags tab
   And I select a tag

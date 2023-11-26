@@ -6,7 +6,7 @@ const MockarooInterface = require('../../../../../page_objects/cypress/mockarooI
 
 context('#05 Como usuario, creo un miembro y valido el incremento', () => {
   // Given I login to my website
-  before(name, () => {
+  beforeEach(name, () => {
     cy.viewport('macbook-16'),
     cy.visit(properties.GHOST5),
     cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),

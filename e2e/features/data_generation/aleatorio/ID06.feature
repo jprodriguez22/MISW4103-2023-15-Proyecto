@@ -2,7 +2,7 @@ Feature: Crear 2 miembros, asignarle un tag a cada uno y filtrar por tag
 
 @user1 @web
 Scenario: #6 Como usuario de Ghost, cambio el estado de un post pblicado a borrador 
-  Given I navigate to the page "http://localhost:2368/ghost"
+  Given I navigate to the page "<GHOST5>"
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   When I go to the members tab
   And I add a name member "$string_1"

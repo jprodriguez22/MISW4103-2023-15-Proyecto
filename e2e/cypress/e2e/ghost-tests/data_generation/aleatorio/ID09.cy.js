@@ -6,14 +6,14 @@ const properties = require('../../../../../properties.json');
 
 context('#9 Editar un tag y asignarlo a varias publicaciones y validarlo', () => {
 
-  before(() => {
-    cy.viewport('macbook-16');
-    cy.visit('http://localhost:2368/ghost');
-    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL);
-    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD);
-    cy.get(loginPage.loginButton).click();
-    cy.wait(1000);
-  });
+  beforeEach(name, () => {
+    cy.viewport('macbook-16'),
+    cy.visit(properties.GHOST5),
+    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
+    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
+    cy.get(loginPage.loginButton).click(),
+    cy.wait(1000)
+})
 
   it('Editar un tag', () => {
     cy.get(tagsPage.panelButton).click();

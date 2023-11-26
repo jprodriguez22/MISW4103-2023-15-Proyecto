@@ -12,7 +12,7 @@ context('#13 Crear una página nueva y agregarla en el navbar', () => {
   // Given I login to my website
   beforeEach(name, () => {
     cy.viewport('macbook-16'),
-    cy.visit('http://localhost:2368/ghost'),
+    cy.visit(properties.GHOST5),
     cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
     cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
     cy.get(loginPage.loginButton).click(),
@@ -28,7 +28,7 @@ context('#13 Crear una página nueva y agregarla en el navbar', () => {
     cy.get(pagesPage.publishButton).click()
     cy.get(pagesPage.continueButton).click()
     cy.get(pagesPage.confirmButton).click()
-    cy.visit('http://localhost:2368/'+pageTitle.toLowerCase())
+    cy.visit('http://146.190.196.137:2368/'+pageTitle.toLowerCase())
   });
   // Then I delete it from the webpage and confirm its elimination
   it('Eliminar la página y validar su eliminación', () => {

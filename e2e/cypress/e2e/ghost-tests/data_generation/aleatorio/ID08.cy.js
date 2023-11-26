@@ -9,14 +9,14 @@ context('#8 Crear un tag, asignarlo a varios posts y filtrarlo', () => {
   let selectedTag; 
 
   // Given I login to my website
-  before(() => {
-    cy.viewport('macbook-16');
-    cy.visit('http://localhost:2368/ghost');
-    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL);
-    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD);
-    cy.get(loginPage.loginButton).click();
-    cy.wait(1000);
-  });
+  beforeEach(name, () => {
+    cy.viewport('macbook-16'),
+    cy.visit(properties.GHOST5),
+    cy.get(loginPage.elementEmail).type(properties.LOGINEMAIL),
+    cy.get(loginPage.elementPassword).type(properties.LOGINPASSWORD),
+    cy.get(loginPage.loginButton).click(),
+    cy.wait(1000)
+})
 
   // When I create a new tag
   it('Crear un nuevo tag', () => {

@@ -2,7 +2,7 @@ Feature: Agregar una nota descriptiva a un miembro
 
 @user1 @web
 Scenario: #15 Como usuario de Ghost, añado una nota descriptiva a un miembro de mi pagina y la valido
-  Given I navigate to the page "http://localhost:2368/ghost"
+  Given I navigate to the page "<GHOST5>"
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   When I go to the members tab
   And I wait for 2 seconds

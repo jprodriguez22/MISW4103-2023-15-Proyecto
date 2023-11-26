@@ -3,7 +3,7 @@ import glob
 
 # CONSTANTES
 TO_REPLACEURL = "http://146.190.196.137:2368"
-TO_BEREPLACEDURL = "http://localhost:2368" # Reemplazamos el localhost con la nueva IP para Ghost 5. Para Ghost 3, modificamos estos parámetros por el puerto 3001
+TO_BEREPLACEDURL = "<G5HOME>" # Reemplazamos el localhost con la nueva IP para Ghost 5. Para Ghost 3, modificamos estos parámetros por el puerto 3001
 KRAKEN_FEATURES_ROUTE = "./W5/features/Originales W5/*.feature"
 CYPRESS_TESTS_ROUTE = "./W5/cypress/e2e/ghost-tests/backup/*.js" # Ruta de los archivos de la semana 5
 
