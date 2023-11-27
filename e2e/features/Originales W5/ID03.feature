@@ -2,7 +2,7 @@ Feature: Pruebas funcionales en Ghost
 
 @user1 @web
 Scenario: #03 Como usuario, creo un post, lo publico, navego hacia el escribiendo su URL, lo elimino y visualizo listado
-  Given I navigate to page "http://localhost:2368/ghost"
+  Given I navigate to page "<GHOST5>"
   And I wait for 1 seconds
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   When I go to the posts tab
@@ -12,7 +12,7 @@ Scenario: #03 Como usuario, creo un post, lo publico, navego hacia el escribiend
   And I wait for 1 seconds
   Then I navigate to the post with name "$$name_1" and port "<G5PORT>"
   And I wait for 2 seconds
-  And I navigate to page "http://localhost:2368/ghost"
+  And I navigate to page "<GHOST5>"
   And I wait for 2 seconds
   And I go to the posts tab
   And I wait for 1 seconds

@@ -50,8 +50,8 @@ class pagesPage extends BasePage{
         await newPageButton.click()
         let titleField = await this.driver.$('[placeholder="Page title"]');
         await titleField.setValue(title);
-        await titleField.keys('Enter')
-        await titleField.keys('Enter')
+        await this.driver.pause(1500);
+        await titleField.keys('Enter');
         await titleField.keys(body)
     }
 
@@ -67,6 +67,12 @@ class pagesPage extends BasePage{
     async exitAfterPublish(){
         let backToEditorButton = await this.driver.$('[data-test-button="back-to-editor"]')
         await backToEditorButton.click()
+    }
+
+    async visitAfterPublish(){
+        let bookmark = await this.driver.$('a[class="gh-post-bookmark-wrapper"]')
+        let url = await bookmark.getAttribute('href')
+        await this.driver.url(url)
     }
 
     async exitEditor(){

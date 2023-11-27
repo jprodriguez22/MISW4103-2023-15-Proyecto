@@ -4,5 +4,7 @@
     "NEWPASSWORD": "NuevasPruebas12345",
     "BASEURL": "146.190.196.137",
     "G5PORT": "2368",
-    "G3PORT": "3001"
+    "G3PORT": "3001",
+    "GHOST5": "146.190.196.137:2368/ghost",
+    "G5HOME": "146.190.196.137:2368/"
 }

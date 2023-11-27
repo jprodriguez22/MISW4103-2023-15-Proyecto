@@ -3,10 +3,36 @@
 
 | Nombre                      | Correo                         |
 |-----------------------------|--------------------------------|
-| Jose Manuel Garcia          | jm.garciad1@uniandes.edu.co    |
 | Juan Pablo Lora Hernández   | j.lora@uniandes.edu.co         |
 | Julian Camilo Mora Valvuena | j.morav@uniandes.edu.co        |
 | Juan Pablo Rodriguez Garcia | jp.rodriguez22@uniandes.edu.co |
+
+## Semana 7
+
+### Preparación antes de las pruebas:
+1. En el directorio raíz del repositorio, ejecute el comando "npm install". Asegurese que está usando NodeJS en la versión 16
+
+2. Es muy importante que se asegure que en la ruta dónde descargue el repositorio no tenga espacios
+
+3. Todas las pruebas fueron construidas en Windows 10 y 11
+
+4. En caso de que alguna de las pruebas no funcione en Mac o en Linux, por favor contactar al equipo. Ninguno de los miembros cuenta con estos sistemas operativos, por lo que los scripts están construidos bajo información recolectada por otros equipos y no son verificables
+
+### Ejecución de las pruebas
+
+#### Windows
+1. Para ejecutar las pruebas de esta semana identifique en la carpeta e2e los script que inician con el prefijo W7
+2. Encontrará las pruebas para cada estrategia en Kraken y un general llamado w7_kraken.bat con el que podrá ejecutar las 60 pruebas en consecución
+3. Para ejecutar las pruebas en Cypress puede utilizar el script w7_cypress.bat
+4. En caso de que el script de Cypress no funcione, en la línea de comando puede ejecutar npx cypress run --spec cypress/e2e/ghost-tests/data_generation
+
+#### Linux
+1. En la carpeta e2e podrá encontrar los scripts para ejecutar todas las pruebas de Kraken y todas las pruebas de Cypress
+2. Antes de poder ejecutarlos, debe convertir los scripts.sh en ejecutables escribiendo en la terminal sudo chmod +x w7_cypress.sh y sudo chmod +x w7_kraken.sh
+
+#### Mac
+1. En la carpeta e2e podrá encontrar los scripts para ejecutar todas las pruebas de Kraken y todas las pruebas de Cypress
+2. Antes de poder ejecutarlos, debe convertir los scripts.sh en ejecutables escribiendo en la terminal chmod +x w7_cypress.sh y chmod +x w7_kraken.sh
 
 ## Semana 6
 Para ejecutar las pruebas construidas en la semana 6, siga los siguientes pasos:
@@ -16,7 +42,7 @@ Para ejecutar las pruebas construidas en la semana 6, siga los siguientes pasos:
 
 2. Para esta semana se cuenta con una versión desplegada en una máquina virtual de Ghost 5.72 y Ghost 3.44. Las rutas de estos servicios son http://146.190.196.137:2368/ y http://146.190.196.137:3001/, respectivamente.
 
-3. Ingrese a la carpeta W5 y acceda al archivo properties.json. En este encontrará lo siguiente: 
+3. Ingrese a la carpeta W5 y acceda al archivo properties.json. En este encontrará lo siguiente:
 
 4. Es muy importante que se asegure que en la ruta dónde descargue el repositorio no tenga espacios. BackstopJS tiene un bug que no permite inicializar el servicio en la carpeta si es el caso
 
@@ -43,7 +69,7 @@ Asegurese de que estos sean los valores que se encuentran en el archivo antes de
 4. Ingrese a la carpeta reports y allí podrá abrir los archvios HTML generados marcados con el respectivo ID de cada prueba.
 
 ### Ejecución de las comparaciones en Backstop:
-1. Asegurese de tener instalado backstop en global: npm install backstopjs 
-2. Una vez finalice la instalación, ejecute el comando backstop remote para iniciar un servicio en la carpeta
+1. Asegurese de tener instalado backstop en global: npm install -g backstopjs
+2. Una vez finalice la instalación, ejecute el comando backstop remote para iniciar un servicio en la carpeta.
 3. Ejecute el comando backstop reference, para cargar las imágenes de referencia obtenidas de las pruebas
 4. Finalmente, ejecute el comando backstop test para iniciar las pruebas. Al finalizar, se le cargará un navegador con las comparaciones
