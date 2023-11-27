@@ -25,7 +25,7 @@ context('#02 Como usuario, creo un post, lo publico, navego hacia el escribiendo
     cy.get(postsPage.newPostButton).click()
     cy.wait(1000)
     cy.get(postsPage.newPosttitleField).type(title).type('{enter}')
-    cy.get(postsPage.newPostbodyField).type(body)
+    cy.get(postsPage.newPostbodyField).type(body, { parseSpecialCharSequences: false })
     cy.wait(3000)
     cy.get(postsPage.publishButton).click()
     cy.get(postsPage.continueButton).click()
