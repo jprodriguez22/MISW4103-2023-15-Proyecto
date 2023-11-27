@@ -15,6 +15,14 @@ const MembersPage = require("../../../page_objects/kraken/membersPage");
 const PostsPage = require("../../../page_objects/kraken/postsPage");
 const PostsPageGhost3 = require("../../../page_objects/kraken/postsPageGhost3");
 const TagsPage = require("../../../page_objects/kraken/tagsPage");
+const { clickThemeButton } = require("../../../page_objects/kraken/userPage");
+const { clickUserButton } = require("../../../page_objects/kraken/userPage");
+const { clickYourProfileButton } = require("../../../page_objects/kraken/userPage");
+const { clickPasswordButton } = require("../../../page_objects/kraken/userPage");
+const { clickChangePasswordButton } = require("../../../page_objects/kraken/userPage");
+const { clickSave } = require("../../../page_objects/kraken/userPage");
+const { clickDone } = require("../../../page_objects/kraken/userPage");
+const { clickSignOut } = require("../../../page_objects/kraken/userPage");
 
 // Pruebas con datos aleatorios
 Given(
@@ -53,7 +61,7 @@ Given(
     pagesPageObject = new PagesPage(this.driver);
     return await pagesPageObject.navigateToTab();
   });
-  
+
   When(
     "I create a new page with title {kraken-string} and body {kraken-string}",
     async function (title, body) {
@@ -61,7 +69,11 @@ Given(
       return await pagesPageObject.prepareNewPage(title, body);
     }
   );
-  
+
+  Given("I navigate to members page", async function () {
+    await this.driver.url("http://146.190.196.137:2368/ghost/#/members");
+  });
+
   When(
       "I create Ghost3 a new page with title {kraken-string} and body {kraken-string}",
       async function (title, body) {

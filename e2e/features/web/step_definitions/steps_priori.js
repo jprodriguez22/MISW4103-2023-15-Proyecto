@@ -10,6 +10,8 @@ const LoginPage = require("../../../page_objects/kraken/loginPage");
 const PagesPage = require("../../../page_objects/kraken/pagesPage");
 const SettingsPage = require("../../../page_objects/kraken/settingsPage");
 const PostsPage = require("../../../page_objects/kraken/postsPage");
+const UsersPage = require("../../../page_objects/kraken/usersPage");
+const changePasswordPage = require("../../../page_objects/kraken/changePasswordPage");
 const MembersPage = require("../../../page_objects/kraken/membersPage");
 const TagsPage = require("../../../page_objects/kraken/tagsPage");
 const MockarooInterface = require("../../../page_objects/kraken/mockarooInterface");
@@ -47,6 +49,7 @@ Given("I load a tag with priori dataset", function () {
   globalThis.tagData = globalThis.mockTag.prioriInitializeTags();
   globalThis.tag= globalThis.mockTag.getRandom(globalThis.tagData);
 });
+
 
 // Acá se deben construir los pasos para la inyección aleatoria de datos
 
@@ -111,7 +114,6 @@ When(
     return await membersPageObject.prepareNewMember(name, email);
   }
 );
-
 
 When(
   "I create a member with priori random name",
@@ -190,10 +192,56 @@ When(
   }
 );
 
+When(
+  "I edit a member with priori random name in email",
+  async function () {
+    membersPageObject = new MembersPage(this.driver);
+    const name = globalThis.member.name;
+    return await membersPageObject.editMemberEmail(name);
+  }
+);
+
+When(
+  "I edit a member with priori random bio as name",
+  async function () {
+    membersPageObject = new MembersPage(this.driver);
+    const bio = globalThis.user1.biography;
+    return await membersPageObject.editMemberName(bio);
+  }
+);
+
+When(
+  "I delete a member with priori random bio as name",
+  async function () {
+    membersPageObject = new MembersPage(this.driver);
+    return await membersPageObject.deleteMemberId();
+  }
+);
+
 When("I create a new descriptive note with priori random info", async function(){
   membersPageObject = new MembersPage(this.driver);
   let note = globalThis.member.name;
   return await membersPageObject.addDescriptiveNote(note);
+  }
+);
+
+
+When(
+  "I change the bio with priori random password",
+  async function () {
+    userPageObject = new UsersPage(this.driver);
+    const password = globalThis.user1.password;
+    return await userPageObject.changeBio(password);
+  }
+);
+
+When(
+  "I change my current password {kraken-string} with priori random passwords",
+  async function (currentPassword) {
+    changePasswordPageObject = new changePasswordPage(this.driver);
+    const password1 = globalThis.user1.password;
+    const password2 = globalThis.user1.email;
+    return await changePasswordPageObject.changePasswordDynamic(currentPassword, password1, password2);
   }
 );
 
