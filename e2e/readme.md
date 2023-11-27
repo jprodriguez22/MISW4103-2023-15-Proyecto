@@ -28,11 +28,11 @@
 4. En caso de que el script de Cypress no funcione, en la línea de comando puede ejecutar npx cypress run --spec cypress/e2e/ghost-tests/data_generation
 
 #### Linux
-1. En la carpeta raíz podrá encontrar los scripts para ejecutar todas las pruebas de Kraken y todas las pruebas de Cypress
+1. En la carpeta e2e podrá encontrar los scripts para ejecutar todas las pruebas de Kraken y todas las pruebas de Cypress
 2. Antes de poder ejecutarlos, debe convertir los scripts.sh en ejecutables escribiendo en la terminal sudo chmod +x w7_cypress.sh y sudo chmod +x w7_kraken.sh
 
 #### Mac
-1. En la carpeta raíz podrá encontrar los scripts para ejecutar todas las pruebas de Kraken y todas las pruebas de Cypress
+1. En la carpeta e2e podrá encontrar los scripts para ejecutar todas las pruebas de Kraken y todas las pruebas de Cypress
 2. Antes de poder ejecutarlos, debe convertir los scripts.sh en ejecutables escribiendo en la terminal chmod +x w7_cypress.sh y chmod +x w7_kraken.sh
 
 ## Semana 6
