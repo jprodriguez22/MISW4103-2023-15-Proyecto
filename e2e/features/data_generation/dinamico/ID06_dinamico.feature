@@ -1,7 +1,7 @@
 Feature: Crear 2 miembros, asignarle un tag a cada uno y filtrar por tag
 
 @user1 @web
-Scenario: #6 Como usuario de Ghost, cambio el estado de un post pblicado a borrador 
+Scenario: #6 Como usuario de Ghost, crear dos nuevos miembros usando strings largos y asignarles un tag de 3 caracteres, validar por medio de filtros sobre ese tag
   Given I navigate to page "<GHOST5>"
   And I wait for 2 seconds
   And I load a dynamic dataset
