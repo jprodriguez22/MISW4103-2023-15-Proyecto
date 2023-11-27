@@ -2,5 +2,5 @@
     "random_hex": "https://my.api.mockaroo.com/random_hex.json?key=a8a70e10",
     "ghost_user": "https://my.api.mockaroo.com/ghost_users.json?key=a8a70e10",
     "ghost_post": "https://my.api.mockaroo.com/ghost_posts.json?key=a8c7c9f0",
-    "ghost_member": "https://my.api.mockaroo.com/ghost_members.json?key=a8c7c9f0"
+    "ghost_member": "https://my.api.mockaroo.com/ghost_members.json?key=1147c450"
 }

@@ -8,6 +8,33 @@
 | Julian Camilo Mora Valvuena | j.morav@uniandes.edu.co        |
 | Juan Pablo Rodriguez Garcia | jp.rodriguez22@uniandes.edu.co |
 
+## Semana 7
+
+### Preparación antes de las pruebas:
+1. En el directorio raíz del repositorio, ejecute el comando "npm install". Asegurese que está usando NodeJS en la versión 16
+
+2. Es muy importante que se asegure que en la ruta dónde descargue el repositorio no tenga espacios
+
+3. Todas las pruebas fueron construidas en Windows 10 y 11
+
+4. En caso de que alguna de las pruebas no funcione en Mac o en Linux, por favor contactar al equipo. Ninguno de los miembros cuenta con estos sistemas operativos, por lo que los scripts están construidos bajo información recolectada por otros equipos y no son verificables
+
+### Ejecución de las pruebas
+
+#### Windows
+1. Para ejecutar las pruebas de esta semana identifique en la carpeta e2e los script que inician con el prefijo W7
+2. Encontrará las pruebas para cada estrategia en Kraken y un general llamado w7_kraken.bat con el que podrá ejecutar las 60 pruebas en consecución
+3. Para ejecutar las pruebas en Cypress puede utilizar el script w7_cypress.bat
+4. En caso de que el script de Cypress no funcione, en la línea de comando puede ejecutar npx cypress run --spec cypress/e2e/ghost-tests/data_generation
+
+#### Linux
+1. En la carpeta raíz podrá encontrar los scripts para ejecutar todas las pruebas de Kraken y todas las pruebas de Cypress
+2. Antes de poder ejecutarlos, debe convertir los scripts.sh en ejecutables escribiendo en la terminal sudo chmod +x w7_cypress.sh y sudo chmod +x w7_kraken.sh
+
+#### Mac
+1. En la carpeta raíz podrá encontrar los scripts para ejecutar todas las pruebas de Kraken y todas las pruebas de Cypress
+2. Antes de poder ejecutarlos, debe convertir los scripts.sh en ejecutables escribiendo en la terminal chmod +x w7_cypress.sh y chmod +x w7_kraken.sh
+
 ## Semana 6
 Para ejecutar las pruebas construidas en la semana 6, siga los siguientes pasos:
 

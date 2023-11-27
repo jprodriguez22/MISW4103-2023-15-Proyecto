@@ -2,7 +2,7 @@
     "panelButton": "[data-test-nav='posts']",
     "newPostButton": "[data-test-new-post-button='']",
     "newPosttitleField": "[placeholder='Post title']",
-    "newPostbodyField": "[data-lexical-text='true']",
+    "newPostbodyField": "div[class='kg-prose']",
     "publishButton": "[data-test-button='publish-flow']",
     "updateButton": "[data-test-button='publish-save']",
     "continueButton": "[data-test-button='continue']",

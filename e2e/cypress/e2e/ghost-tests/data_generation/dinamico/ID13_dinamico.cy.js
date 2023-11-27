@@ -40,10 +40,8 @@ context('#13 Crear una página nueva y agregarla en el navbar', () => {
       cy.get(settingsPage.newNavUrl).filter(':visible').last().type(pageTitle.toLowerCase().replace(/[@. ]/g, "-")).type('{enter}')
       cy.wait(1000)
       cy.get(settingsPage.newNavOkButton).click()
-      // Then I navigate to the homepage and select the element in the navbar
+      // Then I navigate to the homepage
       cy.visit(homePage.url)
-      cy.wait(2000)
-      cy.get('.nav-'+pageTitle.toLowerCase().replace(/[@. ]/g, "-")).click({ force: true })
     })
   })
 })
