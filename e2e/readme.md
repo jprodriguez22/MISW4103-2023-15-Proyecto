@@ -3,7 +3,6 @@
 
 | Nombre                      | Correo                         |
 |-----------------------------|--------------------------------|
-| Jose Manuel Garcia          | jm.garciad1@uniandes.edu.co    |
 | Juan Pablo Lora Hernández   | j.lora@uniandes.edu.co         |
 | Julian Camilo Mora Valvuena | j.morav@uniandes.edu.co        |
 | Juan Pablo Rodriguez Garcia | jp.rodriguez22@uniandes.edu.co |

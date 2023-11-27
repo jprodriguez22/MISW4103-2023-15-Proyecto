@@ -4,6 +4,9 @@ const settingsPage = require('../../../../../page_objects/cypress/settingsPage.j
 const homePage = require('../../../../../page_objects/cypress/homePage.json')
 const properties = require('../../../../../properties.json')
 
+
+const uuid = () => Cypress._.random(0, 1e9)
+
 context('#13 Crear una página nueva y agregarla en el navbar', () => {
   // Given I login to my website
   beforeEach(name, () => {
