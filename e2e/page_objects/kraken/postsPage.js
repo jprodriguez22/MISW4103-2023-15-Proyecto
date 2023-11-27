@@ -142,7 +142,12 @@ class PostsPage extends BasePage {
         let updateButton = await this.driver.$('[data-test-button="publish-save"]');
         await updateButton.click();
       }
-    
+
+      async EditDraftPost(title) {
+        let titleField = await this.driver.$('[placeholder="Post title"]');
+        await titleField.setValue(title);
+      }
+
       async updateCurrentPost() {
         let updateButton = await this.driver.$('[data-test-button="publish-save"]');
         await updateButton.click();

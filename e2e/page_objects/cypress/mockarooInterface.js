@@ -4,6 +4,7 @@ const prioriUsers = require("../../cypress/e2e/ghost-tests/data_generation/prior
 const prioriHex = require("../../cypress/e2e/ghost-tests/data_generation/priori/random_hex.json")
 const prioriPosts = require("../../cypress/e2e/ghost-tests/data_generation/priori/ghost_posts.json")
 const prioriMembers = require("../../cypress/e2e/ghost-tests/data_generation/priori/ghost_members.json")
+const prioriTags = require("../../cypress/e2e/ghost-tests/data_generation/priori/ghost_tags.json")
 
 // Importación de mockups dinámicos
 const mockarooSettings = require("../../cypress/e2e/ghost-tests/data_generation/dinamico/APIs.json");
@@ -33,6 +34,12 @@ class MockarooInterface{
         return await response;
     }
 
+    async dynamicInitializeTags(){
+        let jsonArray = await fetch(mockarooSettings.ghost_tag);
+        let response = await jsonArray.json();
+        return await response;
+    }
+
     prioriInitializeUsers(){
         return prioriUsers;
     }
@@ -47,6 +54,10 @@ class MockarooInterface{
 
     prioriInitializeMembers(){
         return prioriMembers;
+    }
+
+    prioriInitializeTags(){
+        return prioriTags;
     }
 
     getRandom(data){

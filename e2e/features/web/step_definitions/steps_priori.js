@@ -11,6 +11,7 @@ const PagesPage = require("../../../page_objects/kraken/pagesPage");
 const SettingsPage = require("../../../page_objects/kraken/settingsPage");
 const PostsPage = require("../../../page_objects/kraken/postsPage");
 const MembersPage = require("../../../page_objects/kraken/membersPage");
+const TagsPage = require("../../../page_objects/kraken/tagsPage");
 const MockarooInterface = require("../../../page_objects/kraken/mockarooInterface");
 
 // Aquí se declaran los Given para la importación de datos a priori y dinámicos. Estos siempre se deben llamar en el Given
@@ -39,6 +40,12 @@ Given("I load a member with priori dataset", function () {
   globalThis.mockMember = new MockarooInterface(this.driver);
   globalThis.memberData = globalThis.mockMember.prioriInitializeMembers();
   globalThis.member = globalThis.mockMember.getRandom(globalThis.memberData);
+});
+
+Given("I load a tag with priori dataset", function () {
+  globalThis.mockMember = new MockarooInterface(this.driver);
+  globalThis.tagData = globalThis.mockTag.prioriInitializeTags();
+  globalThis.tag= globalThis.mockTag.getRandom(globalThis.tagData);
 });
 
 // Acá se deben construir los pasos para la inyección aleatoria de datos
@@ -79,6 +86,15 @@ When(
 );
 
 When(
+  "I modify data from the post with priori random title",
+  async function () {
+    postsPageObject = new PostsPage(this.driver);
+    const title = globalThis.post.title + "-modify";
+    return await postsPageObject.EditDraftPost(title);
+  }
+);
+
+When(
   "I update the post modified with priori random title2",
   async function () {
     postsPageObject = new PostsPage(this.driver);
@@ -93,6 +109,34 @@ When(
     const name = globalThis.member.name;
     const email = globalThis.member.email;
     return await membersPageObject.prepareNewMember(name, email);
+  }
+);
+
+
+When(
+  "I create a member with priori random name",
+  async function () {
+    membersPageObject = new MembersPage(this.driver);
+    const name = globalThis.member.name;
+    return await membersPageObject.createMember(name);
+  }
+);
+
+When(
+  "I create a member with priori random email",
+  async function () {
+    membersPageObject = new MembersPage(this.driver);
+    const email = globalThis.member.email;
+    return await membersPageObject.emailMember(email);
+  }
+);
+
+When(
+  "I create a member with priori random tag",
+  async function () {
+    membersPageObject = new MembersPage(this.driver);
+    const tag = globalThis.member.name;
+    return await membersPageObject.createMember(tag);
   }
 );
 
@@ -128,6 +172,31 @@ When("I create a new random priori naughty string announcement", async function 
   return await settingsPageObject.newAnnouncement(title);
 });
 
+When(
+  "I create a new tag with priori random name ",
+  async function () {
+    tagsPageObject = new TagsPage(this.driver);
+    const name = globalThis.tag.tag;
+    return await tagsPageObject.insertName(name);
+  }
+);
+
+When(
+  "I modify a created tag with priori random name",
+  async function () {
+    tagsPageObject = new TagsPage(this.driver);
+    const name = globalThis.tag.tag + "-modify";
+    return await tagsPageObject.modifyName(name);
+  }
+);
+
+When("I create a new descriptive note with priori random info", async function(){
+  membersPageObject = new MembersPage(this.driver);
+  let note = globalThis.member.name;
+  return await membersPageObject.addDescriptiveNote(note);
+  }
+);
+
 Then("I navigate to the page with priori random name", async function(){
   pagesPageObject = new PagesPage(this.driver);
   return await pagesPageObject.visitAfterPublish();
@@ -147,4 +216,14 @@ Then("I click on the navbar page with priori name", async function () {
 
 Then("I delete the page with priori random naughty string", async function (){
   return await pagesPageObject.deletePage(globalThis.hex1.naughty.replace(/\s+$/, ''))
+});
+
+Then("Then I navigate to the member with the priori random note", async function(){
+  membersPageObject = new MembersPage(this.driver);
+  return await membersPageObject.validateNote();
+});
+
+Then("Then I apply the filters to see the modified tag with the priori random name", async function(){
+  postsPageObject = new PostsPage(this.driver);
+  return await postsPageObject.filterAllTags();
 });

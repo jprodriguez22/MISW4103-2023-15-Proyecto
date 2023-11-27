@@ -4,6 +4,7 @@ const prioriUsers = require("../../features/data_generation/priori/ghost_users.j
 const prioriHex = require("../../features/data_generation/priori/random_hex.json")
 const prioriPosts = require("../../features/data_generation/priori/ghost_posts.json")
 const prioriMembers = require("../../features/data_generation/priori/ghost_members.json")
+const prioriTags = require("../../features/data_generation/priori/ghost_tags.json")
 
 // Importación de mockups dinámicos
 const mockarooSettings = require("../../features/data_generation/dinamico/APIs.json");
@@ -35,6 +36,12 @@ class MockarooInterface extends BasePage{
         return await response;
     }
 
+    async dynamicInitializeTags(){
+        let jsonArray = await fetch(mockarooSettings.ghost_tag);
+        let response = await jsonArray.json();
+        return await response;
+    }
+
     prioriInitializeUsers(){
         return prioriUsers;
     }
@@ -49,6 +56,10 @@ class MockarooInterface extends BasePage{
 
     prioriInitializeMembers(){
         return prioriMembers;
+    }
+
+    prioriInitializeTags(){
+        return prioriTags;
     }
 
     getRandom(data){
