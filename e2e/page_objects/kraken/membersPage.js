@@ -136,9 +136,9 @@ class MembersPage extends BasePage {
     async navigateToTabMembers() {
         let button = await this.driver.$('[data-test-nav="members"]');
         await button.click();
-      }
+    }
     
-      async prepareNewMember(name, email) {
+    async prepareNewMember(name, email) {
         let newMemberButton = await this.driver.$('[data-test-new-member-button="true"]');
         await newMemberButton.click();
         let nameField = await this.driver.$('[data-test-input="member-name"]');
@@ -147,7 +147,38 @@ class MembersPage extends BasePage {
         await emailField.setValue(email);
         let saveButton = await this.driver.$('[data-test-button="save"]');
         await saveButton.click();
-      }
+    }
+
+    async editMemberEmail(email) {
+        let memberButton = await this.driver.$('[data-test-list="members-list-item"]');
+        await memberButton.click();
+        let emailField = await this.driver.$('[data-test-input="member-email"]');    
+        await emailField.setValue(email);
+        let saveButton = await this.driver.$('[data-test-button="save"]');
+        await saveButton.click();
+    }
+
+
+    async editMemberName(name) {
+        let memberButton = await this.driver.$('[data-test-list="members-list-item"]');
+        await memberButton.click();
+        let nameField = await this.driver.$('[data-test-input="member-name"]');
+        await nameField.setValue(name);
+        let saveButton = await this.driver.$('[data-test-button="save"]');
+        await saveButton.click();
+    }
+
+    async deleteMemberId() {
+        let memberButton = await this.driver.$('[data-test-list="members-list-item"]');
+        await memberButton.click();
+        let settingsButton = await this.driver.$('[data-test-button="member-actions"]');
+        await settingsButton.click()
+        let deleteButton = await this.driver.$('[data-test-button="delete-member"]');
+        await deleteButton.click();
+        let confirmButton = await this.driver.$('[data-test-button="confirm"]');
+        await confirmButton.click();
+
+    }
 }
 
 module.exports = MembersPage;
