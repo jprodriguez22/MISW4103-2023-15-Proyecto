@@ -1,4 +1,5 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
+const configs = require("../../../properties.json");
 
 // Importación de módulos
 const LoginPage = require("../../../page_objects/kraken/loginPage");
