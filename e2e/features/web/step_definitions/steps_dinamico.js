@@ -37,7 +37,7 @@ Given("I load a post with dynamic dataset", async function () {
   globalThis.userData = await globalThis.mockUser.dynamicInitializeUsers();
   globalThis.user1 = globalThis.mockUser.getRandom(globalThis.userData);
   globalThis.mockPost = new MockarooInterface(this.driver);
-  globalThis.postData = globalThis.mockPost.dynamicInitializePosts();
+  globalThis.postData = await globalThis.mockPost.dynamicInitializePosts();
   globalThis.post = globalThis.mockPost.getRandom(globalThis.postData);
 });
 
@@ -52,7 +52,7 @@ Given("I load a member with dynamic dataset", async function () {
   globalThis.userData = await globalThis.mockUser.dynamicInitializeUsers();
   globalThis.user1 = globalThis.mockUser.getRandom(globalThis.userData);
   globalThis.mockMember = new MockarooInterface(this.driver);
-  globalThis.memberData = globalThis.mockMember.dynamicInitializeMembers();
+  globalThis.memberData = await globalThis.mockMember.dynamicInitializeMembers();
   globalThis.member = globalThis.mockMember.getRandom(globalThis.memberData);
 });
 
