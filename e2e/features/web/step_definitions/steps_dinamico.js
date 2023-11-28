@@ -66,7 +66,7 @@ Given("I load a user with dynamic dataset", function () {
 // Acá se deben construir los pasos para la inyección aleatoria de datos
 When("I create a post with dynamic random title and body", async function () {
   postsPageObject = new PostsPage(this.driver);
-  const title = globalThis.post.title;
+  const title = globalThis.post.title.toLowerCase().replace(" ", "-");
   const body = globalThis.post.body;
   return await postsPageObject.prepareNewPost(title, body);
 });
@@ -108,7 +108,7 @@ When(
   "I create a member with dynamic random name and email",
   async function () {
     membersPageObject = new MembersPage(this.driver);
-    const name = globalThis.member.name;
+    const name = globalThis.member.name.toLowerCase().replace(" ", "-");;
     const email = globalThis.member.email;
     return await membersPageObject.prepareNewMember(name, email);
   }
