@@ -10,7 +10,7 @@ Scenario: #01 Como usuario, creo un post, lo publico y navego hacia el escribien
   And I wait for 1 seconds
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   And I wait for 2 seconds
-  When I navigate to page "http://localhost:2368/ghost/#/posts"
+  When I navigate to page "http://146.190.196.137:2368/ghost/#/posts"
   And I wait for 1 seconds
   And I create a post with priori random title and body
   And I wait for 2 seconds
