@@ -73,7 +73,7 @@ When("I create a post with dynamic random title and body", async function () {
 
 When("I select a post with dynamic random name", async function () {
   postsPageObject = new PostsPage(this.driver);
-  const name = globalThis.post.title.replace(" ", "-");
+  const name = globalThis.post.title.toLowerCase().replace(" ", "-");
   return await postsPageObject.selectCurrentPost(name);
 });
 
@@ -239,7 +239,7 @@ When("I create a new random dynamic bio announcement", async function (){
 });
 
 Then("I navigate to the post with dynamic random name", async function () {
-  const name = globalThis.post.title.replace(" ", "-");
+  const name = globalThis.post.title.toLowerCase().replace(" ", "-");
   return await this.driver.url(
     "http://" + configs.BASEURL + ":" + configs.G5PORT + "/" + name
   );
@@ -249,7 +249,7 @@ Then(
   "I delete the post created with dynamic random title",
   async function (name) {
     postsPageObject = new PostsPage(this.driver);
-    name = globalThis.post.title.replace(" ", "-");
+    name = globalThis.post.title.toLowerCase().replace(" ", "-");
     return await postsPageObject.deletePost(name);
   });
 
