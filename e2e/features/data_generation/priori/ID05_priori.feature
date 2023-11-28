@@ -10,9 +10,9 @@ Scenario: #05 Como usuario, creo un miembro y valido el incremento
   And I wait for 1 seconds
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   And I wait for 2 seconds
-  When I navigate to page "<GHOST5>/#/members"
+  When I navigate to page "http://localhost:2368/ghost/#/members"
   And I wait for 1 seconds
   And I create a member with priori random name and email
   And I wait for 2 seconds
-  Then I navigate to page "<GHOST5>/#/members"
+  Then I navigate to page "http://localhost:2368/ghost/#/members"
   And I wait for 2 seconds

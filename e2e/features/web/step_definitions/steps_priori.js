@@ -33,12 +33,18 @@ Given("I load a priori dataset", function () {
 });
 
 Given("I load a post with priori dataset", function () {
+  globalThis.mockUser = new MockarooInterface(this.driver);
+  globalThis.userData = globalThis.mockUser.prioriInitializeUsers();
+  globalThis.user1 = globalThis.mockUser.getRandom(globalThis.userData);
   globalThis.mockPost = new MockarooInterface(this.driver);
   globalThis.postData = globalThis.mockPost.prioriInitializePosts();
   globalThis.post = globalThis.mockPost.getRandom(globalThis.postData);
 });
 
 Given("I load a member with priori dataset", function () {
+  globalThis.mockUser = new MockarooInterface(this.driver);
+  globalThis.userData = globalThis.mockUser.prioriInitializeUsers();
+  globalThis.user1 = globalThis.mockUser.getRandom(globalThis.userData);
   globalThis.mockMember = new MockarooInterface(this.driver);
   globalThis.memberData = globalThis.mockMember.prioriInitializeMembers();
   globalThis.member = globalThis.mockMember.getRandom(globalThis.memberData);
