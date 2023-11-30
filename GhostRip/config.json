@@ -1,0 +1,32 @@
+{   "headless": false,
+    "pages":{
+        "Ghost 5": {"pageName": "Ghost5",
+                    "url": "146.190.196.137:2368/ghost",
+                    "userFieldID": "#identification",
+                    "passwordFieldID": "#password",
+                    "loginButtonID": "button[class^='login']",
+                    "rip": true
+                },
+        "Ghost 4": {"pageName": "Ghost4",
+                    "url": "146.190.196.137:3015/ghost",
+                    "userFieldID": "input[class^='email']",
+                    "passwordFieldID": "input[class^='password']",
+                    "loginButtonID": "button[class^='login']",
+                    "rip": true
+                },
+        "Ghost 3": {"pageName": "Ghost3",
+                    "url": "146.190.196.137:3001/ghost",
+                    "userFieldID": "input[class^='email']",
+                    "passwordFieldID": "input[class^='password']",
+                    "loginButtonID": "button[class^='login']",
+                    "rip": true
+                }
+        },    
+    "email": "admin@uniandes.edu.co",
+    "password": "administrador",
+    "viewports": {
+        "iphoneSE2Gen": {"height": 667, "width": 375},
+        "720p": {"height": 720, "width": 1280},
+        "galaxyS20": {"height": 800, "width": 360}
+    }
+}
