@@ -10,7 +10,7 @@ Scenario: #04 Como usuario, creo un miembro y navego hacia el escribiendo su URL
   And I wait for 1 seconds
   And I login into the page with my email "<LOGINEMAIL>" and password "<LOGINPASSWORD>"
   And I wait for 2 seconds
-  When I navigate to page "<GHOST5>/#/members"
+  When I navigate to page "http://146.190.196.137:2368/ghost/#/members"
   And I wait for 1 seconds
   And I create a member with priori random name and email
   And I wait for 2 seconds

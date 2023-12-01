@@ -32,9 +32,12 @@ Given("I load a dynamic dataset", async function(){ // Este es un llamado para e
   }
 });
 
-Given("I load a post with dynamic dataset", function () {
+Given("I load a post with dynamic dataset", async function () {
+  globalThis.mockUser = new MockarooInterface(this.driver);
+  globalThis.userData = await globalThis.mockUser.dynamicInitializeUsers();
+  globalThis.user1 = globalThis.mockUser.getRandom(globalThis.userData);
   globalThis.mockPost = new MockarooInterface(this.driver);
-  globalThis.postData = globalThis.mockPost.dynamicInitializePosts();
+  globalThis.postData = await globalThis.mockPost.dynamicInitializePosts();
   globalThis.post = globalThis.mockPost.getRandom(globalThis.postData);
 });
 
@@ -44,9 +47,12 @@ Given("I load a tag with dynamic dataset", function () {
   globalThis.tag = globalThis.mockTag.getRandom(globalThis.tagData);
 });
 
-Given("I load a member with dynamic dataset", function () {
+Given("I load a member with dynamic dataset", async function () {
+  globalThis.mockUser = new MockarooInterface(this.driver);
+  globalThis.userData = await globalThis.mockUser.dynamicInitializeUsers();
+  globalThis.user1 = globalThis.mockUser.getRandom(globalThis.userData);
   globalThis.mockMember = new MockarooInterface(this.driver);
-  globalThis.memberData = globalThis.mockMember.dynamicInitializeMembers();
+  globalThis.memberData = await globalThis.mockMember.dynamicInitializeMembers();
   globalThis.member = globalThis.mockMember.getRandom(globalThis.memberData);
 });
 
@@ -60,14 +66,14 @@ Given("I load a user with dynamic dataset", function () {
 // Acá se deben construir los pasos para la inyección aleatoria de datos
 When("I create a post with dynamic random title and body", async function () {
   postsPageObject = new PostsPage(this.driver);
-  const title = globalThis.post.title;
+  const title = globalThis.post.title.toLowerCase().replace(" ", "-");
   const body = globalThis.post.body;
   return await postsPageObject.prepareNewPost(title, body);
 });
 
 When("I select a post with dynamic random name", async function () {
   postsPageObject = new PostsPage(this.driver);
-  const name = globalThis.post.title.replace(" ", "-");
+  const name = globalThis.post.title.toLowerCase().replace(" ", "-");
   return await postsPageObject.selectCurrentPost(name);
 });
 
@@ -102,7 +108,7 @@ When(
   "I create a member with dynamic random name and email",
   async function () {
     membersPageObject = new MembersPage(this.driver);
-    const name = globalThis.member.name;
+    const name = globalThis.member.name.toLowerCase().replace(" ", "-");;
     const email = globalThis.member.email;
     return await membersPageObject.prepareNewMember(name, email);
   }
@@ -233,7 +239,7 @@ When("I create a new random dynamic bio announcement", async function (){
 });
 
 Then("I navigate to the post with dynamic random name", async function () {
-  const name = globalThis.post.title.replace(" ", "-");
+  const name = globalThis.post.title.toLowerCase().replace(" ", "-");
   return await this.driver.url(
     "http://" + configs.BASEURL + ":" + configs.G5PORT + "/" + name
   );
@@ -243,7 +249,7 @@ Then(
   "I delete the post created with dynamic random title",
   async function (name) {
     postsPageObject = new PostsPage(this.driver);
-    name = globalThis.post.title.replace(" ", "-");
+    name = globalThis.post.title.toLowerCase().replace(" ", "-");
     return await postsPageObject.deletePost(name);
   });
 
