@@ -11,6 +11,9 @@
     "clickYourProfileButton": {
       "selector": "a[data-test-nav='user-profile']"
     },
+    "clickYourProfileButton4": {
+      "selector": "[href='#/settings/staff/grupo/']"
+    },
     "clickPasswordButton": {
       "selector": "button[class$='cursor-pointer bg-grey-100 text-black dark:bg-grey-900 dark:text-white hover:!bg-grey-300 dark:hover:!bg-grey-800 inline-flex items-center justify-center whitespace-nowrap rounded text-sm transition font-bold  h-[34px] px-4 ']"
     },
@@ -19,6 +22,9 @@
     },
     "clickSave": {
       "selector": "button[class$='cursor-pointer bg-black text-white dark:bg-white dark:text-black hover:bg-grey-900 inline-flex items-center justify-center whitespace-nowrap rounded text-sm transition font-bold  h-[34px] px-4  min-w-[80px]']"
+    },
+    "clickSave4": {
+      "selector": "button[class$='gh-btn gh-btn-primary gh-btn-icon ember-view']"
     },
     "clickSaveClose": {
       "selector": "button[class$='cursor-pointer bg-black text-white dark:bg-white dark:text-black hover:bg-grey-900 inline-flex items-center justify-center whitespace-nowrap rounded text-sm transition font-bold  h-[34px] px-4  min-w-[80px]"
