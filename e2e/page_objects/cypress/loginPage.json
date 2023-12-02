@@ -1,5 +1,8 @@
 {
     "elementEmail": "#identification",
     "elementPassword": "#password",
-    "loginButton": "#ember5"
+    "loginButton": "#ember5",
+    "elementEmail4": "#ember7",
+    "elementPassword4": "#ember9",
+    "loginButton4": "#ember11"
 }

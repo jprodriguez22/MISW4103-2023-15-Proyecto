@@ -3,7 +3,7 @@ const loginPage = require('../../../../../page_objects/cypress/loginPage.json');
 const membersPage = require('../../../../../page_objects/cypress/membersPage.json');
 const properties = require('../../../../../properties.json');
 
-context('#18 Eliminar un miembro', () => {
+context('#18 Editar el nombre de un miembro creado y validar el cambio', () => {
   let memberIndexToEdit = 1;
 
   // Given I login to my website
@@ -16,21 +16,22 @@ context('#18 Eliminar un miembro', () => {
     cy.wait(1000)
 })
 
-  // When I edit delete a member
-  it('Eliminar un miembro', () => {
+  // When I edit a member's name
+  it('Editar el nombre de un miembro', () => {
     cy.get(membersPage.panelButton).click();
     cy.wait(1000);
     cy.get(membersPage.memberButton).eq(memberIndexToEdit).click();
     cy.wait(1000);
-    cy.get(membersPage.settingsButton).click();
+    const uuid = () => Cypress._.random(0, 1e6);
+    const nameField = `testname${uuid()}`;
+    cy.get(membersPage.nameField).type(nameField,{ force: true });
     cy.wait(1000);
-    cy.get(membersPage.deleteButton).click();
-    cy.wait(1000);
-    cy.get(membersPage.confirmButton).click();
-    cy.wait(1000);
+    cy.get(membersPage.saveButtonMember).click();
 
-    // Then I validate the member is gone
+    // Then I validate the member's name is updated
     cy.get(membersPage.panelButton).click();
-    cy.wait(3000);
+    cy.wait(2000);
+    cy.get(membersPage.memberButton).eq(memberIndexToEdit).click();
+    cy.wait(2000);
   });
 });

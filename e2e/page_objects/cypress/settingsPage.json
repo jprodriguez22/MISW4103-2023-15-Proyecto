@@ -1,5 +1,10 @@
 {
     "settingsTab": "[data-test-nav='settings']",
+    "settingsTab4": "[href='#/settings/']",
+    "deleteAllContent": "[class='gh-btn gh-btn-red js-delete']",
+    "deleteAllContentConfirm": "[class='gh-btn gh-btn-red gh-btn-icon ember-view']",
+    "brand": "[class='gh-nav-design-tab ']",
+    "deleteBanner": "[class='gh-setting-action-largeimg-delete]",
     "navigationSettingsURL": "http://146.190.196.137:2368/ghost/#/settings/navigation/edit",
     "announcementSettingsURL": "http://146.190.196.137:2368/ghost/#/settings/announcement-bar/edit",
     "newNavInput": "[placeholder='New item label']",

@@ -1,5 +1,13 @@
 {
   "panelButton": "[data-test-nav='members']",
+    "newMember4": "[class='ember-view gh-btn gh-btn-primary']",
+    "newMembername4": "#member-name",
+    "newMemberemail4": "#member-email",
+    "saveMember4": "[class='gh-btn gh-btn-primary gh-btn-icon ember-view']",
+    "member4": "[class='ember-view gh-list-data']",
+    "settings4": "[class='gh-btn gh-btn-icon icon-only gh-btn-action-icon closed ember-view']",
+    "deleteMember4": "[class='mr2']",
+    "confirmDeleteMember4": "[class='gh-btn gh-btn-red gh-btn-icon ember-view']",
     "newMemberButton": "[data-test-new-member-button='true']",
     "newMemberNameField": "[data-test-input='member-name']",
     "newMemberEmailField": "[data-test-input='member-email']",
