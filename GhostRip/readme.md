@@ -1,7 +1,7 @@
 # GhostRIP
 ![](https://github.com/jprodriguez22/MISW4103-2023-Grupo13/blob/main/GhostRip/Ghost%20RIP.png)
 
-GhostRIP es una herramienta diseñada específicamente para acelerar el proceso de análisis sobre Ghost. Este es un GUI Ripper de código ligero, escrito en un tiempo de 10 horas, el cuál permite la extracción de screenshots de Ghost con la ventaja de entregarlas organizadas según el viewport y el nombre del nodo. 
+GhostRIP es una herramienta diseñada específicamente para acelerar el proceso de análisis sobre Ghost. Este es un GUI Ripper de código ligero, escrito en un tiempo de 7 horas, el cuál permite la extracción de screenshots de Ghost con la ventaja de entregarlas organizadas según el viewport y el nombre del nodo. 
 
 ## Funcionamiento
 GhostRIP está escrito completamente en [WebDriverIO](https://github.com/webdriverio/webdriverio) y utiliza su motor para la extracción de nodos y la interacción con la página web. Este framework poderoso permite automatizar procesos de forma sencilla, y al ser el motor que usa [Kraken](https://github.com/TheSoftwareDesignLab/Kraken) para realizar su interacción, decidimos utilizar WebDriverIO por la familiaridad que teníamos con esta librería.
