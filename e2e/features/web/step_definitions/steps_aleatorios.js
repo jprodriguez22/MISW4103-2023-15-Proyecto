@@ -47,7 +47,7 @@ Given(
       }
     );
   
-  Given("I navigate to the page {string}", async function (url) {
+  Given("I navigate to the page {kraken-string}", async function (url) {
     await this.driver.url(url);
   });
   

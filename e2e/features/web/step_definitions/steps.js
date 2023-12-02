@@ -8,4 +8,4 @@ const configs = require("../../../properties.json");
 require('./steps_aleatorios')
 require('./steps_priori')
 require('./steps_dinamico')
-require('./stepsG4')
+require('./stepG4')

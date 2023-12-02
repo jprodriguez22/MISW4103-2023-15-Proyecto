@@ -1,7 +1,7 @@
 const { remote } = require('webdriverio');
 const config = require('./config.json');
 const path = require('path');
-const screenshotDirectory = './screenshots';
+const screenshotDirectory = './screens';
 
 // Execution
 (async () => {
@@ -23,12 +23,17 @@ const screenshotDirectory = './screenshots';
             for(viewport in config.viewports){
                 const {height, width} = config.viewports[viewport]
                 const viewportSize = `${width}x${height}`
-                await browser.setWindowSize(width, height)
+                if(config.horizontal){
+                    await browser.setWindowSize(height, width)
+                }
+                else{
+                    await browser.setWindowSize(width, height)
+                }                
                 await browser.url(pageURL)
                 await waitFullLoad(browser)
                 await login(browser, pageObject)
                 await waitFullLoad(browser)
-                const links = await scrapLinks(browser)
+                const links = await scrapLinks(browser, pageURL)
                 for (i in links){
                     href = links[i]
                     await browser.url(`${pageURL}/${href}`)
@@ -45,12 +50,12 @@ const screenshotDirectory = './screenshots';
 })();
 
 // Retrieve all the links belonging to the root directory
-async function scrapLinks(browser){
+async function scrapLinks(browser, base){
     const links = await browser.$$('[href]');
     let rootLinks = [];
     for (link of links){
         href = await link.getAttribute('href');
-        if (href && href.startsWith('#/')){
+        if (href && (href.startsWith('#/') || href.startsWith(base))){
             rootLinks.push(href);
         }
     }
