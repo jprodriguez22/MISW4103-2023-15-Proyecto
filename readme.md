@@ -35,6 +35,11 @@
 1. En la carpeta e2e podrá encontrar los scripts para ejecutar todas las pruebas de Kraken y todas las pruebas de Cypress
 2. Antes de poder ejecutarlos, debe convertir los scripts.sh en ejecutables escribiendo en la terminal chmod +x w7_cypress.sh y chmod +x w7_kraken.sh
 
+### Ejecución de GhostRIP
+1. Dirijase a la carpeta GhostRIP en el directorio raíz
+2. Ejecute el comando node index.js para realizar las pruebas
+3. Puede cambiar los parámetros para ajustar las pruebas. La documentación de los cambios que puede hacer las encuentra en el siguiente enlace https://github.com/jprodriguez22/MISW4103-2023-Grupo13/wiki/GhostRIP
+
 
 ## Semana 7
 
